@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.rhpp.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Login">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="22dp"
+            android:text="Login"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="210dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="22dp"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUsername"
+            app:layout_constraintStart_toEndOf="@+id/tvUsername"
+            app:layout_constraintTop_toTopOf="@+id/tvUsername" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="210dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="4dp"
+            android:hint="Password"
+            android:inputType="textPersonName"
+            android:textSize="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPassword"
+            app:layout_constraintStart_toStartOf="@+id/etUsername"
+            app:layout_constraintTop_toTopOf="@+id/tvPassword"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/spinnerJabatan"
+            android:layout_width="187dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="22dp"
+            android:entries="@array/jabatan"
+            app:layout_constraintStart_toStartOf="@+id/etUsername"
+            app:layout_constraintTop_toTopOf="@+id/tvJabatan" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="206dp"
+            android:text="Username"
+            android:textSize="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvJabatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Jabatan"
+            android:textSize="32dp"
+            app:layout_constraintStart_toStartOf="@+id/tvUsername"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Password"
+            android:textSize="32dp"
+            app:layout_constraintStart_toStartOf="@+id/tvJabatan"
+            app:layout_constraintTop_toBottomOf="@+id/tvJabatan" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.rhpp.PlasmaViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+            app:layout_constraintEnd_toEndOf="@+id/etStrain"
+            app:layout_constraintTop_toTopOf="@+id/tvDate" />
+
+        <EditText
+            android:id="@+id/etStrain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Strain"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/tvStrain"
+            app:layout_constraintEnd_toEndOf="@+id/etQty"
+            app:layout_constraintTop_toTopOf="@+id/tvStrain" />
+
+        <EditText
+            android:id="@+id/etQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Kapasitas"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tvQty"
+            app:layout_constraintEnd_toEndOf="@+id/etBobot"
+            app:layout_constraintTop_toTopOf="@+id/tvQty" />
+
+        <EditText
+            android:id="@+id/etBobot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:ems="10"
+            android:hint="Bobot awal (gr/ekor)"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBobot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvBobot" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:layout_marginBottom="81dp"
+            android:text="Silahkan isi data DOC dengan benar"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/etDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="271dp"
+            android:text="Tanggal"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvStrain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Strain"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+        <TextView
+            android:id="@+id/tvQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:text="ekor"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvStrain"
+            app:layout_constraintTop_toBottomOf="@+id/tvStrain" />
+
+        <TextView
+            android:id="@+id/tvBobot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Bobot"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvQty"
+            app:layout_constraintTop_toBottomOf="@+id/tvQty" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="23dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etBobot"
+            app:srcCompat="@drawable/ic_save" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

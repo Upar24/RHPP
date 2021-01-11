@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.rhpp.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_internal"
+            app:destination="@id/internal" />
+        <action
+            android:id="@+id/action_login_to_plasma"
+            app:destination="@id/plasma" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/internal"
+        android:name="com.example.rhpp.Internal"
+        android:label="Internal"
+        tools:layout="@layout/fragment_internal">
+        <action
+            android:id="@+id/action_internal_to_plasma2"
+            app:destination="@id/plasma" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/plasma"
+        android:name="com.example.rhpp.Plasma"
+        android:label="Plasma"
+        tools:layout="@layout/fragment_plasma">
+        <action
+            android:id="@+id/action_plasma_to_feed"
+            app:destination="@id/feed" />
+        <action
+            android:id="@+id/action_plasma_to_ovk"
+            app:destination="@id/ovk" />
+        <action
+            android:id="@+id/action_plasma_to_sales"
+            app:destination="@id/sales" />
+        <action
+            android:id="@+id/action_plasma_to_doc2"
+            app:destination="@id/doc" />
+        <action
+            android:id="@+id/action_plasma_to_daily2"
+            app:destination="@id/daily" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/daily"
+        android:name="com.example.rhpp.Daily"
+        android:label="Daily"
+        tools:layout="@layout/fragment_daily"/>
+
+    <fragment
+        android:id="@+id/doc"
+        android:name="com.example.rhpp.Doc"
+        android:label="Doc"
+        tools:layout="@layout/fragment_doc"/>
+
+    <fragment
+        android:id="@+id/feed"
+        android:name="com.example.rhpp.Feed"
+        android:label="Feed"
+        tools:layout="@layout/fragment_feed"/>
+
+    <fragment
+        android:id="@+id/ovk"
+        android:name="com.example.rhpp.Ovk"
+        android:label="Ovk"
+        tools:layout="@layout/fragment_ovk"/>
+
+    <fragment
+        android:id="@+id/sales"
+        android:name="com.example.rhpp.Sales"
+        android:label="Sales"
+        tools:layout="@layout/fragment_sales"/>
+</navigation>

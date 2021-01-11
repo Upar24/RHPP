@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.rhpp.InternalViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="33dp"
+            android:text="Lap. IP"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/btnPlasmaList"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/btnPlasmaList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="68dp"
+            android:text="Daftar Plasma"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnReport" />
+
+        <Button
+            android:id="@+id/btnReportRhpp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lap. RHPP"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/btnReport" />
+
+        <EditText
+            android:id="@+id/etdStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="19dp"
+            android:ems="10"
+            android:hint="mulai tanggal"
+            android:inputType="date"
+            app:layout_constraintStart_toEndOf="@+id/tvDateEnd"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etdEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:ems="10"
+            android:hint="sampai tanggal"
+            android:inputType="date"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvDateEnd"
+            app:layout_constraintStart_toStartOf="@+id/etdStart" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="290dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="122dp"
+            android:layout_marginBottom="121dp"
+            android:src="@drawable/logo"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/btnReport"
+            app:layout_constraintEnd_toEndOf="@+id/btnPlasmaList"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/btnPlasmaList"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDateStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="30dp"
+            android:text="Mulai"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDateEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="23dp"
+            android:text="Sampai"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvDateStart"
+            app:layout_constraintTop_toBottomOf="@+id/etdStart" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIpList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/tvDateEnd"
+            app:layout_constraintTop_toBottomOf="@+id/etdEnd" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRhppList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/tvDateEnd"
+            app:layout_constraintTop_toBottomOf="@+id/etdEnd" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPlasmaList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/fabInternal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabInternal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

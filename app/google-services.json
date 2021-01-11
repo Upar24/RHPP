@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "160231280424",
+    "project_id": "rhpp-e79c4",
+    "storage_bucket": "rhpp-e79c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160231280424:android:07a2255f1d67de6c6bca1d",
+        "android_client_info": {
+          "package_name": "com.example.rhpp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160231280424-oeiiscbt5rl7kpqnlc4e2i04nda81kqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCDPUUZ5iHZ1v2crcZbO25LM_aGi7rM5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160231280424-oeiiscbt5rl7kpqnlc4e2i04nda81kqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

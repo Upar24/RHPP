@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.rhpp.PlasmaViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="246dp"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etBuyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:ems="10"
+            android:hint="Pembeli"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/etEkor"
+            app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
+
+        <EditText
+            android:id="@+id/etEkor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Ekor Terjual"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/etKg"
+            app:layout_constraintTop_toBottomOf="@+id/etBuyer" />
+
+        <EditText
+            android:id="@+id/etKg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Kg Terjual"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+            app:layout_constraintTop_toBottomOf="@+id/etEkor" />
+
+        <EditText
+            android:id="@+id/etInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:hint="Invoice"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/etBuyer"
+            app:layout_constraintTop_toBottomOf="@+id/etDate" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Silahkan isi data Penjualan dengan benar"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/etDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="37dp"
+            android:text="Tanggal"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvInvoice"
+            app:layout_constraintEnd_toStartOf="@+id/etDate"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvBuyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pembeli"
+            android:textSize="20dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etBuyer"
+            app:layout_constraintStart_toStartOf="@+id/tvInvoice" />
+
+        <TextView
+            android:id="@+id/tvEkor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Ekor"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvBuyer"
+            app:layout_constraintTop_toBottomOf="@+id/tvBuyer" />
+
+        <TextView
+            android:id="@+id/tvKg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kg"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/etKg"
+            app:layout_constraintStart_toStartOf="@+id/tvEkor"
+            app:layout_constraintTop_toTopOf="@+id/etKg" />
+
+        <TextView
+            android:id="@+id/tvInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:text="Invoice"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvBuyer"
+            app:layout_constraintStart_toStartOf="@+id/tvDate" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="31dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etKg"
+            app:srcCompat="@drawable/ic_save" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

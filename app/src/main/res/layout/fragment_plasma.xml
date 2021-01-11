@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.rhpp.PlasmaViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="86dp"
+            android:layout_marginBottom="330dp"
+            android:text="Harian"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnFeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Pakan"
+            app:layout_constraintStart_toStartOf="@+id/btnDaily"
+            app:layout_constraintTop_toBottomOf="@+id/btnDaily" />
+
+        <Button
+            android:id="@+id/btnDoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="DOC"
+            app:layout_constraintStart_toStartOf="@+id/btnFeed"
+            app:layout_constraintTop_toBottomOf="@+id/btnFeed" />
+
+        <Button
+            android:id="@+id/btnOvk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="OVK"
+            app:layout_constraintEnd_toEndOf="@+id/btnIp"
+            app:layout_constraintTop_toTopOf="@+id/btnDaily" />
+
+        <Button
+            android:id="@+id/btnIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IP"
+            app:layout_constraintEnd_toEndOf="@+id/btnRhpp"
+            app:layout_constraintTop_toTopOf="@+id/btnFeed" />
+
+        <Button
+            android:id="@+id/btnRhpp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="88dp"
+            android:text="RHPP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnDoc" />
+
+        <Button
+            android:id="@+id/btnPenjualan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="14dp"
+            android:text="Penjualan Ayam"
+            app:layout_constraintEnd_toEndOf="@+id/btnRhpp"
+            app:layout_constraintTop_toBottomOf="@+id/btnDoc" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="66dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/btnDaily"
+            app:layout_constraintEnd_toEndOf="@+id/btnPenjualan"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnPenjualan" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
