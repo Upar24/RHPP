@@ -67,6 +67,7 @@
             android:layout_marginTop="206dp"
             android:text="Username"
             android:textSize="32dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,6 +78,7 @@
             android:layout_marginTop="22dp"
             android:text="Jabatan"
             android:textSize="32dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvUsername"
             app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
 
@@ -87,6 +89,7 @@
             android:layout_marginTop="22dp"
             android:text="Password"
             android:textSize="32dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvJabatan"
             app:layout_constraintTop_toBottomOf="@+id/tvJabatan" />
 

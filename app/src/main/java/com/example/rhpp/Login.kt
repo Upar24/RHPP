@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.rhpp.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -27,11 +28,9 @@ class Login : Fragment(R.layout.fragment_login) {
         binding.viewmodel = viewModel
         val view = binding.root
         return view}
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.btnLogin.setOnClickListener{
+        binding.btnLogin.setOnClickListener {
             viewModel.login(binding.etUsername.text.toString(),
                     binding.spinnerJabatan.selectedItem.toString(),
                     binding.etPassword.text.toString())
@@ -41,9 +40,14 @@ class Login : Fragment(R.layout.fragment_login) {
             viewModel.loginUiState.collect{
                 when(it){
                     is LoginViewModel.LoginUiState.Success -> {
-
                         Snackbar.make(view,"Activity LOL",Snackbar.LENGTH_LONG).show()
-                    }
+                        if(binding.spinnerJabatan.selectedItem.toString()=="Plasma"){
+                        findNavController().navigate(LoginDirections.actionLoginToPlasma(
+                                binding.etUsername.text.toString()))
+                         }else{
+                             findNavController().navigate(LoginDirections.actionLoginToInternal(
+                                     binding.spinnerJabatan.selectedItem.toString()))
+                         }}
                     is LoginViewModel.LoginUiState.Error -> {
                         Snackbar.make(
                                 view,

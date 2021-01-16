@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="01-01-2021"
             android:inputType="date"
             app:layout_constraintBottom_toBottomOf="@+id/tvDate"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Nama Ovk"
+            android:hint="Nama ovk"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="@+id/tvOvk"
             app:layout_constraintEnd_toEndOf="@+id/etPrice"
@@ -64,6 +65,7 @@
             android:text="Silahkan isi data OVK dengan benar"
             android:textAlignment="center"
             android:textSize="30dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/etDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -78,6 +80,7 @@
             android:layout_marginTop="276dp"
             android:text="Tanggal"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/etDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -89,6 +92,7 @@
             android:layout_marginTop="37dp"
             android:text="OVK"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvDate"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
@@ -99,6 +103,7 @@
             android:layout_marginTop="36dp"
             android:text="Harga"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvOvk"
             app:layout_constraintTop_toBottomOf="@+id/tvOvk" />
 
@@ -109,6 +114,7 @@
             android:layout_marginTop="36dp"
             android:text="Jumlah"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvPrice"
             app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 
@@ -122,5 +128,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etAmount"
             app:srcCompat="@drawable/ic_save" />
+
+        <TextView
+            android:id="@+id/tvInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invoice"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="212dp" />
+
+        <EditText
+            android:id="@+id/etInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Masukkan no. Invoice"
+            tools:layout_editor_absoluteX="164dp"
+            tools:layout_editor_absoluteY="205dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

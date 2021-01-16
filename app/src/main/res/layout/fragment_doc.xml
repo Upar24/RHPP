@@ -13,12 +13,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="11dp"
+            android:text="Apakah DOC sudah masuk semua ke kandang?"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/fabDoc"
+            app:layout_constraintTop_toBottomOf="@+id/etBobot" />
+
         <EditText
             android:id="@+id/etDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
+            android:hint="01-01-2021"
             app:layout_constraintBottom_toBottomOf="@+id/tvDate"
             app:layout_constraintEnd_toEndOf="@+id/etStrain"
             app:layout_constraintTop_toTopOf="@+id/tvDate" />
@@ -66,6 +78,7 @@
             android:text="Silahkan isi data DOC dengan benar"
             android:textAlignment="center"
             android:textSize="30dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/etDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -79,6 +92,7 @@
             android:layout_marginStart="45dp"
             android:layout_marginTop="271dp"
             android:text="Tanggal"
+            android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -90,6 +104,7 @@
             android:layout_marginTop="28dp"
             android:text="Strain"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvDate"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
@@ -100,6 +115,7 @@
             android:layout_marginTop="27dp"
             android:text="ekor"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvStrain"
             app:layout_constraintTop_toBottomOf="@+id/tvStrain" />
 
@@ -110,6 +126,7 @@
             android:layout_marginTop="30dp"
             android:text="Bobot"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tvQty"
             app:layout_constraintTop_toBottomOf="@+id/tvQty" />
 
@@ -117,11 +134,11 @@
             android:id="@+id/fabDoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etBobot"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
             app:srcCompat="@drawable/ic_save" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

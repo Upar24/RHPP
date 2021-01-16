@@ -16,6 +16,7 @@
         <action
             android:id="@+id/action_login_to_plasma"
             app:destination="@id/plasma" />
+
     </fragment>
 
     <fragment
@@ -26,6 +27,9 @@
         <action
             android:id="@+id/action_internal_to_plasma2"
             app:destination="@id/plasma" />
+        <argument
+            android:name="jbtn"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -43,40 +47,63 @@
             android:id="@+id/action_plasma_to_sales"
             app:destination="@id/sales" />
         <action
-            android:id="@+id/action_plasma_to_doc2"
+            android:id="@+id/action_plasma_to_doc"
             app:destination="@id/doc" />
         <action
-            android:id="@+id/action_plasma_to_daily2"
+            android:id="@+id/action_plasma_to_daily"
             app:destination="@id/daily" />
+        <argument
+            android:name="username"
+            app:argType="string" />
     </fragment>
 
     <fragment
         android:id="@+id/daily"
         android:name="com.example.rhpp.Daily"
         android:label="Daily"
-        tools:layout="@layout/fragment_daily"/>
+        tools:layout="@layout/fragment_daily">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/doc"
         android:name="com.example.rhpp.Doc"
         android:label="Doc"
-        tools:layout="@layout/fragment_doc"/>
+        tools:layout="@layout/fragment_doc">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/feed"
         android:name="com.example.rhpp.Feed"
         android:label="Feed"
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_feed">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/ovk"
         android:name="com.example.rhpp.Ovk"
         android:label="Ovk"
-        tools:layout="@layout/fragment_ovk"/>
+        tools:layout="@layout/fragment_ovk">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/sales"
         android:name="com.example.rhpp.Sales"
         android:label="Sales"
-        tools:layout="@layout/fragment_sales"/>
+        tools:layout="@layout/fragment_sales">
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
 </navigation>

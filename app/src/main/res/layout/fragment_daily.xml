@@ -18,10 +18,10 @@
             android:id="@+id/edDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="18dp"
             android:ems="10"
+            android:hint="01-01-2021"
             android:inputType="date"
-            app:layout_constraintBottom_toBottomOf="@+id/tvDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvDate"
             app:layout_constraintTop_toTopOf="@+id/tvDate" />
@@ -33,9 +33,9 @@
             android:ems="10"
             android:hint="Mati"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="@+id/tvDeath"
-            app:layout_constraintEnd_toEndOf="@+id/etSick"
-            app:layout_constraintTop_toTopOf="@+id/tvDeath" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDeath"
+            app:layout_constraintTop_toBottomOf="@+id/edDate" />
 
         <EditText
             android:id="@+id/etSick"
@@ -44,73 +44,83 @@
             android:ems="10"
             android:hint="Afkir"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSick"
-            app:layout_constraintEnd_toEndOf="@+id/etFeed"
-            app:layout_constraintTop_toTopOf="@+id/tvSick" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSick"
+            app:layout_constraintTop_toBottomOf="@+id/etDeath" />
 
         <EditText
             android:id="@+id/etFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:ems="10"
             android:hint="Konsumsi"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="@+id/tvFeed"
-            app:layout_constraintEnd_toEndOf="@+id/fabSaveDaily"
-            app:layout_constraintTop_toTopOf="@+id/tvFeed" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvFeed"
+            app:layout_constraintTop_toBottomOf="@+id/etSick" />
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="223dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="70dp"
             android:text="Tanggal"
             android:textSize="20dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/edDate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <TextView
             android:id="@+id/tvDeath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="14dp"
             android:text="Mati"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/etDeath"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
         <TextView
             android:id="@+id/tvSick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="12dp"
             android:text="Afkir"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvDeath"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/etSick"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDeath" />
 
         <TextView
             android:id="@+id/tvFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginEnd="14dp"
             android:text="Konsumsi"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvSick"
-            app:layout_constraintTop_toBottomOf="@+id/etSick" />
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/etFeed"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etFeed" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="69dp"
             android:text="Silahkan isi data harian dengan benar"
             android:textAlignment="center"
             android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/edDate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,13 +128,10 @@
             android:id="@+id/fabSaveDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="109dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="115dp"
+            android:layout_marginTop="18dp"
             android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/etFeed"
+            app:layout_constraintEnd_toEndOf="@+id/etFeed"
+            app:layout_constraintTop_toBottomOf="@+id/etFeed"
             app:srcCompat="@drawable/ic_save" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
