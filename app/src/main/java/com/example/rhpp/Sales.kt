@@ -36,7 +36,7 @@ class Sales: Fragment(R.layout.fragment_sales) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.etDate.transformIntoDatePicker(requireContext(),"MM-dd-yyyy", Date())
+        binding.etDate.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
         viewModel.username = args.username
 
 
@@ -47,14 +47,20 @@ class Sales: Fragment(R.layout.fragment_sales) {
                     for (document in documents) {
                         Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
                         idDoc = document.id
-                        viewModel.idDocc= idDoc
+                        viewModel.idDocc = idDoc
                     }
                 }
+        binding.fabSales.setOnClickListener{
+            viewModel.saveSale(binding.etDate.text.toString(),
+                binding.etInvoice.text.toString(),
+                binding.etBuyer.text.toString(),
+                binding.etEkor.text.toString().toInt(),
+                binding.etKg.text.toString().toDouble())
+        }
 
 
 
-//        binding..setOnClickListener{
-//              }
+
     }
 
 

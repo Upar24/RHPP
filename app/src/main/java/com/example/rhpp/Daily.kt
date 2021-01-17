@@ -1,22 +1,23 @@
 package com.example.rhpp
 
-import android.app.DatePickerDialog
-import android.app.ProgressDialog.show
 import android.content.ContentValues
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.rhpp.databinding.FragmentDailyBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.rhpp.model.Harian
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
-import java.text.SimpleDateFormat
+import com.google.firebase.firestore.Query
 import java.util.*
 
 class Daily: Fragment(R.layout.fragment_daily) {
@@ -26,6 +27,8 @@ class Daily: Fragment(R.layout.fragment_daily) {
     private val viewModel :  PlasmaViewModel by viewModels()
     private val db = FirebaseFirestore.getInstance()
     private var idDoc = ""
+    private var adapter: DailyFirestoreRecyclerAdapter? = null
+
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -60,6 +63,12 @@ class Daily: Fragment(R.layout.fragment_daily) {
                     binding.etSick.text.toString().toInt(),
                     binding.etFeed.text.toString().toInt())
         }
+     binding.rvDaily.layoutManager = LinearLayoutManager(activity)
+        var dailyRef = db.collection("users").document(args.username).collection("doc").document(idDoc).collection("daily")
+        var query = dailyRef!!.orderBy("id", Query.Direction.ASCENDING)
+        val options = FirestoreRecyclerOptions.Builder<Harian>().setQuery(query, Harian::class.java).build()
+
+
     }
 
 
@@ -68,3 +77,32 @@ class Daily: Fragment(R.layout.fragment_daily) {
         _binding = null
     }
 }
+
+class DailyFirestoreRecyclerAdapter {
+    private inner class DailyFirestoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<Harian>) : FirestoreRecyclerAdapter<Harian, DailyViewHolder>(options) {
+        override fun onBindViewHolder(dailyViewHolder: DailyViewHolder, position: Int, harianModel: Harian) {
+            dailyViewHolder.setDaily(harianModel.id,
+                harianModel.afkir,
+                harianModel.mati,
+                harianModel.konsumsi)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_daily, parent, false)
+            return DailyViewHolder(view)
+        }
+    }
+}
+
+    class DailyViewHolder internal constructor(private val view: View) : RecyclerView.ViewHolder(view) {
+        fun setDaily(id : String,
+                              afkir : Int,
+                              mati : Int,
+                              konsumsi: Int) {
+
+//            val textView = view.findViewById<TextView>(R.id.text_view)
+//            textView.text = productName
+        }
+    }
+
+
