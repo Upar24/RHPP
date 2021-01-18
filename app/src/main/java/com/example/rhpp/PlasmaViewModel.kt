@@ -81,6 +81,7 @@ class PlasmaViewModel: ViewModel() {
                 "konsumsi" to konsumsi,
         ))
     }
+    var id = idDocc
     fun saveFeed(invoice:String,tgl:String,pakan:String,jenis:String,jmlh:Int)=viewModelScope.launch {
         var feedRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("feed")
             feedRef.document(invoice).set(mapOf(

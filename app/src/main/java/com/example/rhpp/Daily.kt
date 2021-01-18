@@ -94,7 +94,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
 
                     adapter!!.notifyDataSetChanged()
                     binding.rvDaily.adapter = adapter
-                })
+                }
     }
 //     binding.rvDaily.layoutManager = LinearLayoutManager(activity)
 //        var dailyRef = db.collection("users").document(args.username).collection("doc").document(idDoc).collection("daily")
@@ -105,7 +105,9 @@ class Daily: Fragment(R.layout.fragment_daily) {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        firestoreListener!!.remove()
+        firestoreListener!!.remove()}
+    private fun x (){
+        Log.d(ContentValues.TAG, idDoc)
     }
 
     private fun loadHarianList() {
@@ -170,6 +172,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
                     Toast.makeText(activity, "Note has been deleted!", Toast.LENGTH_SHORT).show()
                 }
     }
+
 }
 
 
