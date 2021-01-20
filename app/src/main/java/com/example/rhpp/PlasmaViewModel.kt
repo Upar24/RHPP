@@ -53,14 +53,15 @@ class PlasmaViewModel: ViewModel() {
                     "jumlah" to jmlh
             ))
     }
-    fun saveOvk(invoice:String,tgl:String,ovk:String,harga:Int,jmlh:Int)=viewModelScope.launch {
+    fun saveOvk(invoice:String,tgl:String,ovk:String,harga:Int,jmlh:Int,total:Int)=viewModelScope.launch {
         var ovkRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("ovk")
         ovkRef.document(invoice).set(mapOf(
                 "id" to invoice,
                 "tgl" to tgl,
                 "namaOvk" to ovk,
                 "harga" to harga,
-                "jumlah" to jmlh)
+                "jumlah" to jmlh,
+                "total" to total)
         )
     }
     fun saveSale(tgl: String,invoice: String,pmbl:String,ekor: Int,kg:Double)=viewModelScope.launch {

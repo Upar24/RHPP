@@ -188,8 +188,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
                 holder.edit.setOnClickListener { updateNote(harian.id!!) }
                 holder.delete.setOnClickListener { deleteNote(harian.id!!)}
                 holder.check.setOnCheckedChangeListener{buttomView,isChecked ->
-                    if(isChecked){checkNote(harian.id!!)}
-                }
+                    if(isChecked){checkNote(harian.id!!)}}
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HarianViewHolder {

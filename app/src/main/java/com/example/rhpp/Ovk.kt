@@ -2,19 +2,29 @@ package com.example.rhpp
 
 import android.app.DatePickerDialog
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rhpp.ViewHolder.HarianViewHolder
+import com.example.rhpp.ViewHolder.OvkViewHolder
 import com.example.rhpp.databinding.FragmentOvkBinding
 import com.example.rhpp.databinding.FragmentPlasmaBinding
+import com.example.rhpp.model.Harian
+import com.example.rhpp.model.ObatVK
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,7 +34,9 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
     private val args : OvkArgs by navArgs()
     private val viewModel :  PlasmaViewModel by viewModels()
     private val db = FirebaseFirestore.getInstance()
-    private var idDoc = ""
+    private var adapter : FirestoreRecyclerAdapter<ObatVK,OvkViewHolder>? = null
+    private var firestoreListener : ListenerRegistration? = null
+    private var OvkList = mutableListOf<ObatVK>()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -38,28 +50,112 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         super.onViewCreated(view, savedInstanceState)
         binding.etDate.transformIntoDatePicker(requireContext(),"MM-dd-yyyy", Date())
         viewModel.username = args.username
+        viewModel.idDocc = args.chickIn
 
-
-        db.collection("users").document(args.username).collection("doc")
-                .whereEqualTo("siap", true)
-                .get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                        idDoc = document.id
-                        viewModel.idDocc= idDoc
+        val mLayoutManager = LinearLayoutManager(activity)
+        binding.rvOvk.layoutManager = mLayoutManager
+        binding.rvOvk.itemAnimator = DefaultItemAnimator()
+        loadOvkList()
+        firestoreListener = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+                .addSnapshotListener { documentSnapshots, e->
+                    if(e != null){
+                        Log.e(TAG,"Listen Failed",e)
+                        return@addSnapshotListener
                     }
+                    if(documentSnapshots != null){
+                        OvkList = mutableListOf()
+                        for(doc in documentSnapshots){
+                            val ovk = doc.toObject(ObatVK::class.java)
+                            ovk.id= doc.id
+                            OvkList.add(ovk)
+                        }
+                    }
+                    adapter!!.notifyDataSetChanged()
+                    binding.rvOvk.adapter=adapter
                 }
+
+
         binding.fabOvk.setOnClickListener{
             viewModel.saveOvk(binding.etInvoice.text.toString(),
                 binding.etDate.text.toString(),
                 binding.etOvk.text.toString(),
                 binding.etPrice.text.toString().toInt(),
-                binding.etAmount.text.toString().toInt())
+                binding.etAmount.text.toString().toInt(),
+                binding.etTotalRp.toString().toInt())
         }
+    }
+
+    private fun loadOvkList() {
+        val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+        val response = FirestoreRecyclerOptions.Builder<ObatVK>()
+                .setQuery(query,ObatVK::class.java).build()
+        adapter = object : FirestoreRecyclerAdapter<ObatVK, OvkViewHolder>(response) {
+            override fun onBindViewHolder(holder: OvkViewHolder, position: Int, model: ObatVK) {
+                val obat = OvkList[position]
+                holder.id.text = obat.id
+                holder.tgl.text = obat.tgl
+                holder.namaOvk.text = obat.namaOvk
+                holder.harga.text = obat.harga.toString()
+                holder.jumlah.text = obat.jumlah.toString()
+                holder.total.text = obat.total.toString()
+                holder.edit.setOnClickListener{editOvk(obat.id!!)}
+                holder.delete.setOnClickListener{deleteOvk(obat.id!!)}
+            }
+
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OvkViewHolder {
+                val view = LayoutInflater.from(parent.context)
+                        .inflate(R.layout.item_ovk,parent,false)
+                return OvkViewHolder(view)
+            }
+        }
+        adapter!!.notifyDataSetChanged()
+        binding.rvOvk.adapter=adapter
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        adapter!!.startListening()
     }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        firestoreListener!!.remove()
     }
+
+    override fun onStop() {
+        super.onStop()
+        adapter!!.stopListening()
+    }
+    private fun deleteOvk(id:String){
+        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+                .document(id)
+                .delete()
+                .addOnCompleteListener{
+                    Toast.makeText(activity, "OVK has been deleted!", Toast.LENGTH_SHORT).show()
+                }
+    }
+    private fun editOvk(id: String){
+        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+    }
+    private fun hideRv(){
+        binding.tvTitle.visibility = View.VISIBLE
+        binding.tvInvoice.visibility = View.VISIBLE
+        binding.tvDate.visibility = View.VISIBLE
+        binding.tvOvk.visibility = View.VISIBLE
+        binding.tvPrice.visibility = View.VISIBLE
+        binding.tvTotalOvk.visibility = View.VISIBLE
+        binding.tvTotalRp.visibility = View.VISIBLE
+        binding.etInvoice.visibility = View.VISIBLE
+        binding.etDate.visibility = View.VISIBLE
+        binding.etOvk.visibility = View.VISIBLE
+        binding.etPrice.visibility = View.VISIBLE
+        binding.etAmount.visibility = View.VISIBLE
+        binding.etTotalRp.visibility = View.VISIBLE
+        binding.btnList.visibility = View.VISIBLE
+        binding.fabOvk.visibility = View.VISIBLE
+
+        binding.rvOvk.visibility=View.GONE
+    }
+
 }
