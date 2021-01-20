@@ -56,7 +56,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
 
 
 
-
+        hideRv()
         binding.fabSaveDaily.setOnClickListener {
             viewModel.saveDaily(binding.edDate.text.toString(),
                     binding.etDeath.text.toString().toInt(),
@@ -104,20 +104,36 @@ class Daily: Fragment(R.layout.fragment_daily) {
         binding.edDate.visibility = View.VISIBLE
         binding.etSick.visibility = View.VISIBLE
         binding.fabSaveDaily.visibility = View.VISIBLE
+        binding.btnHarian.visibility = View.VISIBLE
 
+
+        binding.idLayout.visibility =View.GONE
         binding.rvDaily.visibility = View.GONE
+        binding.tvTA.visibility = View.GONE
+        binding.tvTM.visibility =View.GONE
+        binding.tvTF.visibility =View.GONE
         binding.tvTotal.visibility = View.GONE
+        binding.tvTotalAfkir.visibility = View.GONE
+        binding.tvTotalFeed.visibility = View.GONE
     }
 
     private fun hideEntry() {
         db!!.collection("users").document(args.username).collection("doc")
                 .document(args.chickIn).collection("daily").get()
                 .addOnSuccessListener { document ->
-                    var total = 0
+                    var totalAfkir = 0
+                    var totalMati =0
+                    var totalFeed = 0
                     for (doc in document) {
-                        var b = doc.get("mati").toString().toInt()
-                        total = total + b
-                        binding.tvTotal.text = total.toString()
+                        var b = doc.get("afkir").toString().toInt()
+                        var c = doc.get("mati").toString().toInt()
+                        var d = doc.get("konsumsi").toString().toInt()
+                        totalAfkir = totalAfkir + b
+                        totalMati = totalMati + c
+                        totalFeed = totalFeed + d
+                        binding.tvTotal.text = totalAfkir.toString()
+                        binding.tvTotalAfkir.text = totalMati.toString()
+                        binding.tvTotalFeed.text = totalFeed.toString()
                     }
                 }
         binding.tvTitle.visibility = View.GONE
@@ -130,9 +146,19 @@ class Daily: Fragment(R.layout.fragment_daily) {
         binding.edDate.visibility = View.GONE
         binding.etSick.visibility = View.GONE
         binding.fabSaveDaily.visibility = View.GONE
+        binding.btnHarian.visibility = View.GONE
 
+
+        binding.idLayout.visibility =View.VISIBLE
         binding.rvDaily.visibility = View.VISIBLE
+        binding.tvTA.visibility = View.VISIBLE
+        binding.tvTM.visibility =View.VISIBLE
+        binding.tvTF.visibility =View.VISIBLE
         binding.tvTotal.visibility = View.VISIBLE
+        binding.tvTotalAfkir.visibility = View.VISIBLE
+        binding.tvTotalFeed.visibility = View.VISIBLE
+
+
 
     }
 
@@ -160,8 +186,10 @@ class Daily: Fragment(R.layout.fragment_daily) {
                 holder.konsumsi.text = harian.konsumsi.toString()
                 holder.check.isChecked = harian.check
                 holder.edit.setOnClickListener { updateNote(harian.id!!) }
-                holder.delete.setOnClickListener { deleteNote(harian.id!!)
-                holder.check.setOnClickListener{checkNote(harian.id!!)}}
+                holder.delete.setOnClickListener { deleteNote(harian.id!!)}
+                holder.check.setOnCheckedChangeListener{buttomView,isChecked ->
+                    if(isChecked){checkNote(harian.id!!)}
+                }
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HarianViewHolder {

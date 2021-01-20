@@ -14,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toStartOf="@+id/rvDaily"
-        app:layout_constraintStart_toStartOf="@+id/rvDaily">
-
+        app:layout_constraintStart_toStartOf="@+id/idLayout">
 
         <Button
             android:id="@+id/btnHarian"
@@ -23,9 +22,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="List Harian"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/fabSaveDaily"
             app:layout_constraintEnd_toStartOf="@+id/fabSaveDaily"
             app:layout_constraintTop_toBottomOf="@+id/etFeed" />
+
 
         <EditText
             android:id="@+id/edDate"
@@ -76,6 +77,109 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvFeed"
             app:layout_constraintTop_toBottomOf="@+id/etSick" />
+
+        <LinearLayout
+            android:id="@+id/idLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Tanggal"
+                android:visibility="visible"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tvAfkir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Afkir"
+                android:visibility="visible"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tvMati"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:text="Mati"
+                android:visibility="visible"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tvKonsumsi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:visibility="visible"
+                android:text="Feed"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/imEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:visibility="visible"
+                android:text="E"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/imDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:visibility="visible"
+                android:text="D"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/idCheck"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:visibility="visible"
+                android:text="ok"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvDate"
@@ -150,23 +254,85 @@
             android:id="@+id/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="144dp"
-            android:layout_marginBottom="170dp"
+            android:gravity="left"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/rvDaily"
+            android:visibility="visible"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/tvTA"
             app:layout_constraintTop_toBottomOf="@+id/rvDaily" />
+
+        <TextView
+            android:id="@+id/tvTotalAfkir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="TextView"
+            android:visibility="visible"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvTotal"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotal" />
+
+        <TextView
+            android:id="@+id/tvTotalFeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="TextView"
+            android:visibility="visible"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvTotalAfkir"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalAfkir" />
+
+        <TextView
+            android:id="@+id/tvTA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Total Afkir"
+            android:visibility="visible"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvTM"
+            app:layout_constraintTop_toBottomOf="@+id/rvDaily" />
+
+        <TextView
+            android:id="@+id/tvTM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Total Mati"
+            android:visibility="visible"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvTF"
+            app:layout_constraintTop_toBottomOf="@+id/tvTA" />
+
+        <TextView
+            android:id="@+id/tvTF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="97dp"
+            android:gravity="left"
+            android:text="Total Feed"
+            android:visibility="visible"
+            android:textAlignment="gravity"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalFeed"
+            app:layout_constraintStart_toStartOf="@+id/rvDaily"
+            app:layout_constraintTop_toBottomOf="@+id/tvTM" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvDaily"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="411dp"
+            android:layout_height="350dp"
             android:scrollbars="vertical"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/tvTotal"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/idLayout" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabSaveDaily"
