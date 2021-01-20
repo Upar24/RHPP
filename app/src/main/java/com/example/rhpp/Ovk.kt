@@ -52,6 +52,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         viewModel.username = args.username
         viewModel.idDocc = args.chickIn
 
+        hideRv()
         val mLayoutManager = LinearLayoutManager(activity)
         binding.rvOvk.layoutManager = mLayoutManager
         binding.rvOvk.itemAnimator = DefaultItemAnimator()
@@ -73,15 +74,20 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
                     adapter!!.notifyDataSetChanged()
                     binding.rvOvk.adapter=adapter
                 }
-
-
+        binding.etTotalRp.setOnClickListener{
+            binding.etTotalRp.setText(binding.etPrice.toString().toInt()*binding.etAmount.toString().toInt())
+        }
+//        if(binding.etAmount.text != null){
+//        var total = binding.etPrice.text.toString().toInt()*binding.etAmount.text.toString().toInt()
+//        binding.etTotalRp.setText(total)}
         binding.fabOvk.setOnClickListener{
             viewModel.saveOvk(binding.etInvoice.text.toString(),
                 binding.etDate.text.toString(),
                 binding.etOvk.text.toString(),
                 binding.etPrice.text.toString().toInt(),
                 binding.etAmount.text.toString().toInt(),
-                binding.etTotalRp.toString().toInt())
+                binding.etTotalRp.text.toString().toInt())
+            hideEntry()
         }
     }
 
@@ -155,7 +161,43 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         binding.btnList.visibility = View.VISIBLE
         binding.fabOvk.visibility = View.VISIBLE
 
+        binding.idLayout.visibility=View.GONE
         binding.rvOvk.visibility=View.GONE
+        binding.tvTotalb.visibility=View.GONE
+        binding.tvTotalB.visibility=View.GONE
+    }
+    private fun hideEntry(){
+        db!!.collection("users").document(args.username).collection("doc")
+                .document(args.chickIn).collection("ovk").get()
+                .addOnSuccessListener { document ->
+                    var totalRp = 0
+                     for (doc in document) {
+                        var b = doc.get("total").toString().toInt()
+                         totalRp= totalRp + b
+                         binding.tvTotalB.text = totalRp.toString()
+                       }
+                }
+        binding.tvTitle.visibility = View.GONE
+        binding.tvInvoice.visibility = View.GONE
+        binding.tvDate.visibility = View.GONE
+        binding.tvOvk.visibility = View.GONE
+        binding.tvPrice.visibility = View.GONE
+        binding.tvTotalOvk.visibility = View.GONE
+        binding.tvTotalRp.visibility = View.GONE
+        binding.etInvoice.visibility = View.GONE
+        binding.etDate.visibility = View.GONE
+        binding.etOvk.visibility = View.GONE
+        binding.etPrice.visibility = View.GONE
+        binding.etAmount.visibility = View.GONE
+        binding.etTotalRp.visibility = View.GONE
+        binding.btnList.visibility = View.GONE
+        binding.fabOvk.visibility = View.GONE
+
+        binding.idLayout.visibility=View.VISIBLE
+        binding.rvOvk.visibility=View.VISIBLE
+        binding.tvTotalb.visibility=View.VISIBLE
+        binding.tvTotalB.visibility=View.VISIBLE
+
     }
 
 }

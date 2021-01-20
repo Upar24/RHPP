@@ -13,6 +13,108 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/idLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvTgl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="Tgl"
+                android:textAlignment="gravity"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvInvoiceI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:background="@drawable/border"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:text="Inv."
+                android:textAlignment="gravity"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvOvkI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.7"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="Ovk"
+                android:textAlignment="gravity"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvHarga"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="Harga"
+                android:textAlignment="gravity"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvQtyI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="Qty"
+                android:textAlignment="gravity"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvTotalI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="Total Rp"
+                android:textAlignment="gravity"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/imEditI"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="E"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                app:srcCompat="@drawable/ic_editt" />
+
+            <TextView
+                android:id="@+id/imDeleteI"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:gravity="left"
+                android:text="D"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                app:srcCompat="@drawable/ic_delete_foreground" />
+
+        </LinearLayout>
+
         <EditText
             android:id="@+id/etDate"
             android:layout_width="wrap_content"
@@ -21,6 +123,7 @@
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/tvDate"
             app:layout_constraintEnd_toEndOf="@+id/etOvk" />
 
@@ -32,6 +135,7 @@
             android:ems="10"
             android:hint="Nama ovk"
             android:inputType="textPersonName"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/tvOvk"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -42,6 +146,7 @@
             android:ems="10"
             android:hint="Harga"
             android:inputType="number"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
             app:layout_constraintStart_toStartOf="@+id/etAmount" />
 
@@ -53,6 +158,7 @@
             android:ems="10"
             android:hint="Jumlah OVK"
             android:inputType="number"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/tvTotalOvk"
             app:layout_constraintEnd_toEndOf="@+id/etTotalRp" />
 
@@ -64,6 +170,7 @@
             android:ems="10"
             android:hint="Masukkan no. Invoice"
             android:inputType="textPersonName"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/tvInvoice"
             app:layout_constraintStart_toStartOf="@+id/etDate" />
 
@@ -74,6 +181,7 @@
             android:ems="10"
             android:hint="Total (Rp)"
             android:inputType="number"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/tvTotalRp"
             app:layout_constraintEnd_toEndOf="@+id/fabOvk" />
 
@@ -86,6 +194,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,6 +206,7 @@
             android:text="Tanggal"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvInvoice"
             app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
 
@@ -108,6 +218,7 @@
             android:text="OVK"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvDate"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
@@ -119,6 +230,7 @@
             android:text="Harga"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvOvk"
             app:layout_constraintTop_toBottomOf="@+id/tvOvk" />
 
@@ -130,6 +242,7 @@
             android:text="Jumlah"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvPrice"
             app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
 
@@ -142,6 +255,7 @@
             android:text="Invoice"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -153,6 +267,7 @@
             android:text="Total (Rp)"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvTotalOvk"
             app:layout_constraintTop_toBottomOf="@+id/tvTotalOvk" />
 
@@ -162,6 +277,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:clickable="true"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etInvoice"
             app:layout_constraintTop_toBottomOf="@+id/etTotalRp"
             app:srcCompat="@drawable/ic_save" />
@@ -171,6 +287,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="List OVK"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/fabOvk"
             app:layout_constraintEnd_toStartOf="@+id/fabOvk"
             app:layout_constraintTop_toBottomOf="@+id/etTotalRp"
@@ -179,9 +296,29 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvOvk"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="97dp"
-            android:visibility="gone"
-            tools:layout_editor_absoluteY="31dp" />
+            android:layout_height="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idLayout" />
+
+        <TextView
+            android:id="@+id/tvTotalb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Rupiah OVK:"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvOvk" />
+
+        <TextView
+            android:id="@+id/tvTotalB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvOvk" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

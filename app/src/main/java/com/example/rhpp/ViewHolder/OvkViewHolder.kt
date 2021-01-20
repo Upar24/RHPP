@@ -21,8 +21,8 @@ class OvkViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 
     init {
-        id = view.findViewById(R.id.tvTgl)
-        tgl = view.findViewById(R.id.tvInvoiceI)
+        id = view.findViewById(R.id.tvInvoiceI)
+        tgl = view.findViewById(R.id.tvTgl)
         namaOvk = view.findViewById(R.id.tvOvkI)
         harga = view.findViewById(R.id.tvHarga)
         jumlah = view.findViewById(R.id.tvQtyI)
