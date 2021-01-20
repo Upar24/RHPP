@@ -12,6 +12,8 @@ import com.example.rhpp.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import java.util.*
+
 @ExperimentalCoroutinesApi
 class Login : Fragment(R.layout.fragment_login) {
     private var _binding : FragmentLoginBinding? = null
@@ -34,7 +36,9 @@ class Login : Fragment(R.layout.fragment_login) {
             viewModel.login(binding.etUsername.text.toString(),
                     binding.spinnerJabatan.selectedItem.toString(),
                     binding.etPassword.text.toString())
-        }
+            }
+        binding.etDate.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
+
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.loginUiState.collect{
@@ -43,10 +47,14 @@ class Login : Fragment(R.layout.fragment_login) {
                         Snackbar.make(view,"Activity LOL",Snackbar.LENGTH_LONG).show()
                         if(binding.spinnerJabatan.selectedItem.toString()=="Plasma"){
                         findNavController().navigate(LoginDirections.actionLoginToPlasma(
-                                binding.etUsername.text.toString()))
+                                binding.etUsername.text.toString(),
+                                binding.spinnerJabatan.selectedItem.toString(),
+                                binding.etDate.text.toString()))
                          }else{
                              findNavController().navigate(LoginDirections.actionLoginToInternal(
-                                     binding.spinnerJabatan.selectedItem.toString()))
+                                     binding.spinnerJabatan.selectedItem.toString(),
+                                binding.etUsername.text.toString(),
+                                binding.etDate.text.toString()))
                          }}
                     is LoginViewModel.LoginUiState.Error -> {
                         Snackbar.make(

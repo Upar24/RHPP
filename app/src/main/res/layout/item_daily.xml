@@ -61,7 +61,7 @@
         <ImageView
             android:id="@+id/imEdit"
             android:layout_width="0dp"
-            android:layout_height="23dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@drawable/border"
             app:srcCompat="@drawable/ic_editt" />
@@ -69,9 +69,16 @@
         <ImageView
             android:id="@+id/imDelete"
             android:layout_width="0dp"
-            android:layout_height="23dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@drawable/border"
             app:srcCompat="@drawable/ic_delete_foreground" />
+
+        <CheckBox
+            android:id="@+id/idCheck"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
     </LinearLayout>
 </layout>

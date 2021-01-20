@@ -2,7 +2,9 @@ package com.example.rhpp
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +22,9 @@ import com.example.rhpp.databinding.FragmentDailyBinding
 import com.example.rhpp.model.Harian
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.firestore.Query
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.*
 import java.util.*
 
 class Daily: Fragment(R.layout.fragment_daily) {
@@ -32,7 +33,6 @@ class Daily: Fragment(R.layout.fragment_daily) {
     private val args: DailyArgs by navArgs()
     private val viewModel: PlasmaViewModel by viewModels()
     private val db = FirebaseFirestore.getInstance()
-    private var idDoc = ""
     private var adapter: FirestoreRecyclerAdapter<Harian, HarianViewHolder>? = null
     private var firestoreListener: ListenerRegistration? = null
     private var harianList = mutableListOf<Harian>()
@@ -51,18 +51,9 @@ class Daily: Fragment(R.layout.fragment_daily) {
         super.onViewCreated(view, savedInstanceState)
         binding.edDate.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
         viewModel.username = args.username
+        viewModel.idDocc = args.chickIn
+        Snackbar.make(view, viewModel.idDocc, Snackbar.LENGTH_LONG).show()
 
-
-        db.collection("users").document(args.username).collection("doc")
-                .whereEqualTo("siap", true)
-                .get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                        idDoc = document.id
-                        viewModel.idDocc = idDoc
-                    }
-                }
 
 
 
@@ -71,48 +62,89 @@ class Daily: Fragment(R.layout.fragment_daily) {
                     binding.etDeath.text.toString().toInt(),
                     binding.etSick.text.toString().toInt(),
                     binding.etFeed.text.toString().toInt())
+            hideEntry()
+        }
+        binding.btnHarian.setOnClickListener{
+            hideEntry()
         }
         val mLayoutManager = LinearLayoutManager(activity)
         binding.rvDaily.layoutManager = mLayoutManager
         binding.rvDaily.itemAnimator = DefaultItemAnimator()
 
         loadHarianList()
-        firestoreListener = db!!.collection("users").document(args.username).collection("doc").document(idDoc).collection("daily")
-                .addSnapshotListener{ documentSnapshots, e ->
+        firestoreListener = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+                .addSnapshotListener { documentSnapshots, e ->
                     if (e != null) {
                         Log.e(TAG, "Listen failed!", e)
                         return@addSnapshotListener
                     }
-                    if ( documentSnapshots != null){
-                    harianList = mutableListOf()
+                    if (documentSnapshots != null) {
+                        harianList = mutableListOf()
 
-                    for (doc in documentSnapshots) {
-                        val harian = doc.toObject(Harian::class.java)
-                        harian.id = doc.id
-                        harianList.add(harian)
-                    }}
+                        for (doc in documentSnapshots) {
+                            val harian = doc.toObject(Harian::class.java)
+                            harian.id = doc.id
+                            harianList.add(harian)
+                        }
+                    }
 
                     adapter!!.notifyDataSetChanged()
                     binding.rvDaily.adapter = adapter
                 }
     }
-//     binding.rvDaily.layoutManager = LinearLayoutManager(activity)
-//        var dailyRef = db.collection("users").document(args.username).collection("doc").document(idDoc).collection("daily")
-//        var query = dailyRef!!.orderBy("id", Query.Direction.ASCENDING)
-//        val options = FirestoreRecyclerOptions.Builder<Harian>().setQuery(query, Harian::class.java).build()
 
+    private fun hideRv() {
+        binding.tvTitle.visibility = View.VISIBLE
+        binding.tvDate.visibility = View.VISIBLE
+        binding.tvDeath.visibility = View.VISIBLE
+        binding.tvFeed.visibility = View.VISIBLE
+        binding.tvSick.visibility = View.VISIBLE
+        binding.etFeed.visibility = View.VISIBLE
+        binding.etDeath.visibility = View.VISIBLE
+        binding.edDate.visibility = View.VISIBLE
+        binding.etSick.visibility = View.VISIBLE
+        binding.fabSaveDaily.visibility = View.VISIBLE
+
+        binding.rvDaily.visibility = View.GONE
+        binding.tvTotal.visibility = View.GONE
+    }
+
+    private fun hideEntry() {
+        db!!.collection("users").document(args.username).collection("doc")
+                .document(args.chickIn).collection("daily").get()
+                .addOnSuccessListener { document ->
+                    var total = 0
+                    for (doc in document) {
+                        var b = doc.get("mati").toString().toInt()
+                        total = total + b
+                        binding.tvTotal.text = total.toString()
+                    }
+                }
+        binding.tvTitle.visibility = View.GONE
+        binding.tvDate.visibility = View.GONE
+        binding.tvDeath.visibility = View.GONE
+        binding.tvFeed.visibility = View.GONE
+        binding.tvSick.visibility = View.GONE
+        binding.etFeed.visibility = View.GONE
+        binding.etDeath.visibility = View.GONE
+        binding.edDate.visibility = View.GONE
+        binding.etSick.visibility = View.GONE
+        binding.fabSaveDaily.visibility = View.GONE
+
+        binding.rvDaily.visibility = View.VISIBLE
+        binding.tvTotal.visibility = View.VISIBLE
+
+    }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
         firestoreListener!!.remove()}
-    private fun x (){
-        Log.d(ContentValues.TAG, idDoc)
-    }
 
-    private fun loadHarianList() {
 
-        val query = db!!.collection("users").document(args.username).collection("doc").document(idDoc).collection("daily")
+    private fun loadHarianList(){
+
+        val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
 
         val response = FirestoreRecyclerOptions.Builder<Harian>()
                 .setQuery(query, Harian::class.java)
@@ -123,13 +155,13 @@ class Daily: Fragment(R.layout.fragment_daily) {
                 val harian = harianList[position]
 
                 holder.id.text = harian.id
-                holder.afkir.text = harian.afkir
-                holder.mati.text = harian.mati
-                holder.konsumsi.text = harian.konsumsi
-
-                holder.edit.setOnClickListener { updateNote(harian) }
-
-                holder.delete.setOnClickListener { deleteNote(harian.id!!) }
+                holder.afkir.text = harian.afkir.toString()
+                holder.mati.text = harian.mati.toString()
+                holder.konsumsi.text = harian.konsumsi.toString()
+                holder.check.isChecked = harian.check
+                holder.edit.setOnClickListener { updateNote(harian.id!!) }
+                holder.delete.setOnClickListener { deleteNote(harian.id!!)
+                holder.check.setOnClickListener{checkNote(harian.id!!)}}
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HarianViewHolder {
@@ -156,22 +188,37 @@ class Daily: Fragment(R.layout.fragment_daily) {
         adapter!!.stopListening()
     }
 
-    private fun updateNote(harian: Harian) {
-//        val intent = Intent(this, NoteActivity::class.java)
-//        intent.putExtra("UpdateNoteId", note.id)
-//        intent.putExtra("UpdateNoteTitle", note.title)
-//        intent.putExtra("UpdateNoteContent", note.content)
-//        startActivity(intent)
-    }
+
 
     private fun deleteNote(id: String) {
-        db!!.collection("users").document(args.username).collection("doc").document(idDoc).collection("daily")
+        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                 .document(id)
                 .delete()
                 .addOnCompleteListener {
                     Toast.makeText(activity, "Note has been deleted!", Toast.LENGTH_SHORT).show()
                 }
     }
+    private fun checkNote(id:String){
+        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+                .document(id)
+                .update("check",true)
+    }
+    private fun updateNote(id: String) {
+        hideRv()
+        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+                .document(id)
+                .get()
+                .addOnSuccessListener {doc->
+                    if ( doc != null){
+                        binding.edDate.setText(doc.get("id").toString())
+                        binding.etDeath.setText(doc.get("mati").toString())
+                        binding.etSick.setText(doc.get("afkir").toString())
+                        binding.etFeed.setText(doc.get("konsumsi").toString())
+                    }
+                }
+    }
+
+
 
 }
 

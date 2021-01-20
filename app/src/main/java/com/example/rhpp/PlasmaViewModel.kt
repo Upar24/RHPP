@@ -3,6 +3,8 @@ package com.example.rhpp
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,52 +20,11 @@ class PlasmaViewModel: ViewModel() {
     private val db = FirebaseFirestore.getInstance()
 
 
-
-//    lateinit var idUsers : String
     init {
         db.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
-//    fun lol()=viewModelScope.launch {
-//        db.collection("users").document(username).collection("doc")
-//                .whereEqualTo("siap", true)
-//                .get()
-//                .addOnSuccessListener { documents ->
-//                    for (document in documents) {
-//                        idDocc = document.id
-//                    }
-//                }
-//                .addOnFailureListener { exception ->
-//                    Log.w(TAG, "Error getting documents: ", exception)
-//                }
-//    }
-//    fun checkIdDoc ()=viewModelScope.launch {
-//        db.collection("users").document(username).collection("doc")
-//                .whereEqualTo("siap",true)
-//                .get()
-//                .addOnSuccessListener { document ->
-//                   if ( document != null){
-////                       Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-//
-////                       val u = document.data
-//                        idDoc = document.id
-//                    }
-//                }
-//    }
-//    fun check()=viewModelScope.launch{
-//        db.collection("users").document(username)
-//                .get()
-//                .addOnSuccessListener { documents ->
-//                    for (document in documents){
-//                        val c = documents.id
-//                    }
-//                }
-//                .addOnFailureListener{exeption ->
-//                    Log.w(TAG,"Error Getting documents",exeption)
-//                }
-//    }
     fun saveDoc(tgl:String,strain:String,ekor:Int,bobot:Int,siap:Boolean)=viewModelScope.launch{
-    var docRef = db.collection("users").document(username).collection("doc")
-    docRef.document(tgl).set(mapOf(
+    db.collection("users").document(username).collection("doc").document(tgl).set(mapOf(
                 "id" to tgl,
                 "strain" to strain,
                 "ekor" to ekor,
@@ -79,9 +40,9 @@ class PlasmaViewModel: ViewModel() {
                 "mati" to mati,
                 "afkir" to afkir,
                 "konsumsi" to konsumsi,
+                "check" to false
         ))
     }
-    var id = idDocc
     fun saveFeed(invoice:String,tgl:String,pakan:String,jenis:String,jmlh:Int)=viewModelScope.launch {
         var feedRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("feed")
             feedRef.document(invoice).set(mapOf(
@@ -111,6 +72,7 @@ class PlasmaViewModel: ViewModel() {
                 "ekor" to ekor,
                 "kg" to kg)
         )
+
     }
 
 

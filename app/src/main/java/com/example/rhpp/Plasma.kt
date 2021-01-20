@@ -30,24 +30,27 @@ class Plasma : Fragment(R.layout.fragment_plasma) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.username = args.username
+        viewModel.idDocc = args.chickIn
+        var jabatan = args.jbtn
 
 
-        Snackbar.make(view, viewModel.username, Snackbar.LENGTH_LONG).show()
+
+        Snackbar.make(view, viewModel.idDocc, Snackbar.LENGTH_LONG).show()
         super.onViewCreated(view, savedInstanceState)
         binding.btnDaily.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToDaily(args.username))
+            findNavController().navigate(PlasmaDirections.actionPlasmaToDaily(args.username,args.chickIn,args.jbtn))
         }
         binding.btnDoc.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToDoc(args.username))
+            findNavController().navigate(PlasmaDirections.actionPlasmaToDoc(args.username,args.chickIn))
         }
         binding.btnFeed.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToFeed(args.username))
+            findNavController().navigate(PlasmaDirections.actionPlasmaToFeed(args.username,args.chickIn,args.jbtn))
         }
         binding.btnOvk.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToOvk(args.username))
+            findNavController().navigate(PlasmaDirections.actionPlasmaToOvk(args.username,args.chickIn,args.jbtn))
         }
         binding.btnPenjualan.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToSales(args.username))
+            findNavController().navigate(PlasmaDirections.actionPlasmaToSales(args.username,args.chickIn,args.jbtn))
         }
 
 

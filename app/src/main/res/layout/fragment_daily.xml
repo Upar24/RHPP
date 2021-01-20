@@ -12,8 +12,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toStartOf="@+id/rvDaily"
+        app:layout_constraintStart_toStartOf="@+id/rvDaily">
 
+
+        <Button
+            android:id="@+id/btnHarian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="List Harian"
+            app:layout_constraintBottom_toBottomOf="@+id/fabSaveDaily"
+            app:layout_constraintEnd_toStartOf="@+id/fabSaveDaily"
+            app:layout_constraintTop_toBottomOf="@+id/etFeed" />
 
         <EditText
             android:id="@+id/edDate"
@@ -23,6 +35,7 @@
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvDate"
             app:layout_constraintTop_toTopOf="@+id/tvDate" />
@@ -34,6 +47,7 @@
             android:ems="10"
             android:hint="Mati"
             android:inputType="number"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvDeath"
             app:layout_constraintTop_toBottomOf="@+id/edDate" />
@@ -45,6 +59,7 @@
             android:ems="10"
             android:hint="Afkir"
             android:inputType="number"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvSick"
             app:layout_constraintTop_toBottomOf="@+id/etDeath" />
@@ -57,6 +72,7 @@
             android:ems="10"
             android:hint="Konsumsi"
             android:inputType="number"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvFeed"
             app:layout_constraintTop_toBottomOf="@+id/etSick" />
@@ -68,8 +84,9 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="70dp"
             android:text="Tanggal"
-            android:textSize="20dp"
             android:textColor="@color/black"
+            android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/edDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -81,8 +98,9 @@
             android:layout_marginTop="18dp"
             android:layout_marginEnd="14dp"
             android:text="Mati"
-            android:textSize="20dp"
             android:textColor="@color/black"
+            android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/etDeath"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
@@ -94,8 +112,9 @@
             android:layout_marginTop="18dp"
             android:layout_marginEnd="12dp"
             android:text="Afkir"
-            android:textSize="20dp"
             android:textColor="@color/black"
+            android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/etSick"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDeath" />
@@ -106,8 +125,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="14dp"
             android:text="Konsumsi"
-            android:textSize="20dp"
             android:textColor="@color/black"
+            android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/etFeed"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,8 +140,31 @@
             android:layout_marginTop="69dp"
             android:text="Silahkan isi data harian dengan benar"
             android:textAlignment="center"
-            android:textSize="30dp"
             android:textColor="@color/black"
+            android:textSize="30dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="144dp"
+            android:layout_marginBottom="170dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/rvDaily"
+            app:layout_constraintTop_toBottomOf="@+id/rvDaily" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDaily"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tvTotal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,17 +174,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:clickable="true"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etFeed"
             app:layout_constraintTop_toBottomOf="@+id/etFeed"
             app:srcCompat="@drawable/ic_save" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvDaily"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="168dp"
-            tools:layout_editor_absoluteY="539dp"
-            android:scrollbars="vertical"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

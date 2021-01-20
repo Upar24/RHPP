@@ -30,6 +30,12 @@
         <argument
             android:name="jbtn"
             app:argType="string" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -55,6 +61,12 @@
         <argument
             android:name="username"
             app:argType="string" />
+        <argument
+            android:name="jbtn"
+            app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -64,6 +76,12 @@
         tools:layout="@layout/fragment_daily">
         <argument
             android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
+        <argument
+            android:name="jbtn"
             app:argType="string" />
     </fragment>
 
@@ -75,6 +93,9 @@
         <argument
             android:name="username"
             app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -84,6 +105,12 @@
         tools:layout="@layout/fragment_feed">
         <argument
             android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
+        <argument
+            android:name="jbtn"
             app:argType="string" />
     </fragment>
 
@@ -95,6 +122,12 @@
         <argument
             android:name="username"
             app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
+        <argument
+            android:name="jbtn"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -104,6 +137,12 @@
         tools:layout="@layout/fragment_sales">
         <argument
             android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="chickIn"
+            app:argType="string" />
+        <argument
+            android:name="jbtn"
             app:argType="string" />
     </fragment>
 </navigation>

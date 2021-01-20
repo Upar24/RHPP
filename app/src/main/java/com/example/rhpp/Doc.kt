@@ -31,6 +31,7 @@ class Doc: Fragment(R.layout.fragment_doc) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.username = args.username
+        viewModel.idDocc = args.chickIn
         binding.etDate.transformIntoDatePicker(requireContext(),"MM-dd-yyyy", Date())
         binding.fabDoc.setOnClickListener{
             viewModel.saveDoc(binding.etDate.text.toString(),
