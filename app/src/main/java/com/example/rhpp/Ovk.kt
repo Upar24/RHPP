@@ -5,6 +5,9 @@ import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -74,12 +77,37 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
                     adapter!!.notifyDataSetChanged()
                     binding.rvOvk.adapter=adapter
                 }
-        binding.etTotalRp.setOnClickListener{
-            binding.etTotalRp.setText(binding.etPrice.toString().toInt()*binding.etAmount.toString().toInt())
+        binding.btnList.setOnClickListener{
+            hideEntry()
         }
-//        if(binding.etAmount.text != null){
-//        var total = binding.etPrice.text.toString().toInt()*binding.etAmount.text.toString().toInt()
-//        binding.etTotalRp.setText(total)}
+
+        binding.etAmount.addTextChangedListener(object  : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(!binding.etAmount.text.toString().equals("")&&!binding.etPrice.text.toString().equals("")){
+                    var b = binding.etAmount.text.toString().toInt()
+                    var c = binding.etAmount.text.toString().toInt()
+                    var x = b*c
+                    binding.etTotalRp.setText(x.toString()) }
+                }
+            })
+        binding.etPrice.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(!binding.etAmount.text.toString().equals("")&&!binding.etPrice.text.toString().equals("")){
+                    var b = binding.etAmount.text.toString().toInt()
+                    var c = binding.etAmount.text.toString().toInt()
+                    var x = b*c
+                    binding.etTotalRp.setText(x.toString()) }
+                }
+            override fun afterTextChanged(p0: Editable?) {
+                }
+
+        })
+
+
         binding.fabOvk.setOnClickListener{
             viewModel.saveOvk(binding.etInvoice.text.toString(),
                 binding.etDate.text.toString(),
@@ -90,6 +118,9 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
             hideEntry()
         }
     }
+
+
+
 
     private fun loadOvkList() {
         val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
@@ -142,7 +173,20 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
                 }
     }
     private fun editOvk(id: String){
+        hideRv()
         db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+                .document(id)
+                .get()
+                .addOnSuccessListener{doc->
+                    if(doc != null){
+                        binding.etDate.setText(doc.get("tgl").toString())
+                        binding.etInvoice.setText(doc.get("id").toString())
+                        binding.etOvk.setText(doc.get("namaOvk").toString())
+                        binding.etPrice.setText(doc.get("harga").toString())
+                        binding.etAmount.setText(doc.get("jumlah").toString())
+                        binding.etTotalRp.setText(doc.get("total").toString())
+                    }
+                }
     }
     private fun hideRv(){
         binding.tvTitle.visibility = View.VISIBLE

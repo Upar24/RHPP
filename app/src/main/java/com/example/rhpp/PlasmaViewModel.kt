@@ -1,15 +1,9 @@
 package com.example.rhpp
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.launch
 
 
@@ -43,14 +37,15 @@ class PlasmaViewModel: ViewModel() {
                 "check" to false
         ))
     }
-    fun saveFeed(invoice:String,tgl:String,pakan:String,jenis:String,jmlh:Int)=viewModelScope.launch {
+    fun saveFeed(invoice: String, tgl: String, pakan: String, jenis: String, jmlh: Int, total: Int)=viewModelScope.launch {
         var feedRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("feed")
             feedRef.document(invoice).set(mapOf(
                     "id" to invoice,
                     "tgl" to tgl,
                     "namaPakan" to pakan,
                     "jenis" to jenis,
-                    "jumlah" to jmlh
+                    "jumlah" to jmlh,
+                    "total" to total
             ))
     }
     fun saveOvk(invoice:String,tgl:String,ovk:String,harga:Int,jmlh:Int,total:Int)=viewModelScope.launch {
