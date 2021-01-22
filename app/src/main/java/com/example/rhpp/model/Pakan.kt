@@ -10,7 +10,7 @@ class Pakan {
 
     constructor() {}
 
-    constructor(id: String, tgl: String, namaPakan: String, jenis:String, jumlah:Int, total:Int) {
+    constructor(id: String, tgl: String, namaPakan: String,jenis:String,jumlah:Int, total:Int) {
         this.id = id
         this.tgl = tgl
         this.namaPakan = namaPakan
@@ -33,7 +33,7 @@ class Pakan {
         val result = HashMap<String, Any>()
         result.put("tgl", tgl!!)
         result.put("namaPakan", namaPakan!!)
-        result.put("jenis", jenis!!)
+        result.put("jenis",jenis!!)
         result.put("jumlah",jumlah!!)
         result.put("total",total!!)
 

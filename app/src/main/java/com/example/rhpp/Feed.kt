@@ -60,7 +60,7 @@ class Feed: Fragment(R.layout.fragment_feed) {
             viewModel.saveFeed(binding.etInvoice.text.toString(),
                 binding.edDate.text.toString(),
                 binding.etFeed.text.toString(),
-                binding.spFeed.selectedItem.toString(),
+                binding.spFeed.text.toString().toInt(),
                 binding.edTotalFeed.text.toString().toInt(),
                 binding.etAmount.text.toString().toInt())
             hideEntry()
@@ -76,7 +76,7 @@ class Feed: Fragment(R.layout.fragment_feed) {
                 val pakan = pakanList[position]
                 holder.id.text = pakan.id
                 holder.tgl.text = pakan.tgl
-                holder.jenis.text = pakan.jenis
+                holder.namaPakan.text = pakan.namaPakan
                 holder.jumlah.text = pakan.jumlah.toString()
                 holder.total.text = pakan.total.toString()
                 holder.edit.setOnClickListener{editFeed(pakan.id!!)}
@@ -113,6 +113,9 @@ private fun editFeed(id : String){
         binding.etAmount.visibility = View.VISIBLE
         binding.button.visibility = View.VISIBLE
         binding.fabFeed.visibility = View.VISIBLE
+        binding.tvFeed.visibility = View.VISIBLE
+        binding.tvFeedType.visibility = View.VISIBLE
+
 
         binding.idLayout.visibility = View.GONE
         binding.rvListFeed.visibility = View.GONE
@@ -125,7 +128,6 @@ private fun editFeed(id : String){
         binding.tvTitle.visibility = View.GONE
         binding.tvInvoice.visibility = View.GONE
         binding.tvDate.visibility =View.GONE
-        binding.etFeed.visibility =View.GONE
         binding.tvTotalFeed.visibility = View.GONE
         binding.tvTotal.visibility = View.GONE
         binding.etInvoice.visibility = View.GONE
@@ -136,6 +138,9 @@ private fun editFeed(id : String){
         binding.etAmount.visibility = View.GONE
         binding.button.visibility = View.GONE
         binding.fabFeed.visibility = View.GONE
+        binding.tvFeed.visibility= View.GONE
+        binding.tvFeedType.visibility=View.GONE
+
 
         binding.idLayout.visibility = View.VISIBLE
         binding.rvListFeed.visibility = View.VISIBLE

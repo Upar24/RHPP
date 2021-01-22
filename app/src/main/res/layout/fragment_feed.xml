@@ -90,18 +90,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <TextView
                 android:id="@+id/tvDateF"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="tgl" />
-
+                android:text="tgl"
+                tools:layout_editor_absoluteY="32dp" />
             <TextView
                 android:id="@+id/tvInvoiceF"
                 android:layout_width="0dp"
@@ -109,12 +107,6 @@
                 android:layout_weight="1"
                 android:text="Inv" />
 
-            <TextView
-                android:id="@+id/tvJenisF"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Jenis" />
 
             <TextView
                 android:id="@+id/tvJumlahF"
@@ -145,13 +137,15 @@
                 android:text="D" />
         </LinearLayout>
 
-        <Spinner
+        <EditText
             android:id="@+id/spFeed"
-            android:layout_width="199dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:entries="@array/feedType"
             android:visibility="visible"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:hint="7500/7600"
             app:layout_constraintEnd_toEndOf="@+id/edTotalFeed"
             app:layout_constraintTop_toBottomOf="@+id/etFeed" />
 
@@ -163,7 +157,6 @@
             android:text="Jumlah Pakan"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvTotal"
             app:layout_constraintTop_toBottomOf="@+id/tvFeedType" />
 
@@ -172,10 +165,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Jenis Pakan"
+            android:text="Jenis Harga"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvTotalFeed"
             app:layout_constraintTop_toBottomOf="@+id/tvFeed" />
 
@@ -187,7 +179,6 @@
             android:text="Pakan"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvFeedType"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
@@ -199,7 +190,6 @@
             android:text="Tanggal"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/edDate"
             app:layout_constraintStart_toStartOf="@+id/tvFeed"
             app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
@@ -212,7 +202,6 @@
             android:text="Invoice"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvDate"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -225,7 +214,6 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30dp"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -262,7 +250,6 @@
             android:layout_marginStart="160dp"
             android:layout_marginTop="64dp"
             android:text="TextView"
-            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/tvJumlah"
             app:layout_constraintTop_toBottomOf="@+id/rvListFeed" />
 
@@ -272,7 +259,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/tvJmlh"
             app:layout_constraintTop_toBottomOf="@+id/tvJmlh" />
 
@@ -290,7 +276,6 @@
             android:id="@+id/rvListFeed"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLayout" />
@@ -301,9 +286,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:clickable="true"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etAmount"
             app:layout_constraintTop_toBottomOf="@+id/etAmount"
             app:srcCompat="@drawable/ic_save" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

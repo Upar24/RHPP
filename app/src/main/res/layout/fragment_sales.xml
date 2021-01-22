@@ -19,69 +19,75 @@
             android:id="@+id/etDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="246dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="32dp"
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvDate"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <EditText
+            android:id="@+id/etInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Masukkan no. Invoice"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/etDate"
+            app:layout_constraintTop_toBottomOf="@+id/etDate" />
 
         <EditText
             android:id="@+id/etBuyer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
             android:ems="10"
             android:hint="Nama Pembeli"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/etEkor"
+            app:layout_constraintEnd_toEndOf="@+id/etInvoice"
             app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
 
         <EditText
             android:id="@+id/etEkor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Total ayam terjual (ekor)"
             android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/etKg"
+            app:layout_constraintEnd_toEndOf="@+id/etBuyer"
             app:layout_constraintTop_toBottomOf="@+id/etBuyer" />
 
         <EditText
             android:id="@+id/etKg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:ems="10"
             android:hint="Total ayam terjual (Kg)"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/fabSales"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="@+id/etEkor"
             app:layout_constraintTop_toBottomOf="@+id/etEkor" />
 
         <EditText
-            android:id="@+id/etInvoice"
+            android:id="@+id/tvTotalSales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Masukkan no. Invoice"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/etBuyer"
-            app:layout_constraintTop_toBottomOf="@+id/etDate" />
+            android:inputType="numberDecimal"
+            android:text="Total Penjualan (Rp)"
+            app:layout_constraintEnd_toEndOf="@+id/tvHargaGrns"
+            app:layout_constraintTop_toBottomOf="@+id/lHargaGaransi" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
             android:text="Silahkan isi data Penjualan dengan benar"
             android:textAlignment="center"
-            android:textSize="30dp"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/etDate"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,68 +95,153 @@
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="37dp"
-            android:textColor="@color/black"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="52dp"
             android:text="Tanggal"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvInvoice"
-            app:layout_constraintEnd_toStartOf="@+id/etDate"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tvBuyer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pembeli"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            app:layout_constraintBaseline_toBaselineOf="@+id/etBuyer"
-            app:layout_constraintStart_toStartOf="@+id/tvInvoice" />
-
-        <TextView
-            android:id="@+id/tvEkor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Ekor"
             android:textSize="20dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/tvBuyer"
-            app:layout_constraintTop_toBottomOf="@+id/tvBuyer" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <TextView
             android:id="@+id/tvKg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Kg"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/etKg"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="@+id/tvEkor"
-            app:layout_constraintTop_toTopOf="@+id/etKg" />
+            app:layout_constraintTop_toBottomOf="@+id/tvEkor" />
+
+        <TextView
+            android:id="@+id/tvEkor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ekor"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvBuyer"
+            app:layout_constraintTop_toBottomOf="@+id/tvBuyer" />
 
         <TextView
             android:id="@+id/tvInvoice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
+            android:layout_marginTop="24dp"
             android:text="Invoice"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/tvBuyer"
-            app:layout_constraintStart_toStartOf="@+id/tvDate" />
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+        <TextView
+            android:id="@+id/tvBuyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Pembeli"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/tvInvoice"
+            app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
+
+        <TextView
+            android:id="@+id/lUmur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/black"
+            android:text="Umur:  "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvKg" />
+
+        <TextView
+            android:id="@+id/tvUmur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xx"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/lUmur"
+            app:layout_constraintStart_toEndOf="@+id/lUmur" />
+
+        <TextView
+            android:id="@+id/lHargaGaransi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Harga  Garansi:   "
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAbw"
+            app:layout_constraintStart_toEndOf="@+id/tvAbw" />
+
+        <TextView
+            android:id="@+id/lAbw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="ABW(Kg):   "
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUmur"
+            app:layout_constraintStart_toEndOf="@+id/tvUmur" />
+
+        <TextView
+            android:id="@+id/tvAbw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x.xx"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/lAbw"
+            app:layout_constraintStart_toEndOf="@+id/lAbw" />
+
+        <TextView
+            android:id="@+id/tvHargaGrns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxxxxx"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/lHargaGaransi"
+            app:layout_constraintStart_toEndOf="@+id/lHargaGaransi" />
+
+        <TextView
+            android:id="@+id/tvLsales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Total (Rp)"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="@+id/lUmur"
+            app:layout_constraintTop_toBottomOf="@+id/lUmur" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabSales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="31dp"
+            android:layout_marginTop="20dp"
             android:clickable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etKg"
+            app:layout_constraintEnd_toEndOf="@+id/tvTotalSales"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalSales"
             app:srcCompat="@drawable/ic_save" />
+
+        <Button
+            android:id="@+id/btnListSales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="List Penjualan"
+            app:layout_constraintEnd_toStartOf="@+id/fabSales"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalSales" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListSales"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="115dp"
+            tools:layout_editor_absoluteY="325dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

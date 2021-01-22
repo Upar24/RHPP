@@ -6,50 +6,51 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvDateF"
+        android:id="@+id/tvTglS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/tvInvoiceF"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <TextView
-        android:id="@+id/tvNameFeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/tvJumlahF"
+        android:id="@+id/tvInvoiceS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/tvTotalFe"
+        android:id="@+id/tvEkorS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="1.3"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvKgS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.3"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvTotalS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
         android:text="TextView" />
 
     <ImageView
-        android:id="@+id/imEditF"
+        android:id="@+id/imEditS"
         android:layout_width="0dp"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_weight="1"
         app:srcCompat="@drawable/ic_editt" />
 
     <ImageView
-        android:id="@+id/imDeleteF"
+        android:id="@+id/imDeleteS"
         android:layout_width="0dp"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_weight="1"
         app:srcCompat="@drawable/ic_delete_foreground" />
 </LinearLayout>

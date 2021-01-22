@@ -37,7 +37,7 @@ class PlasmaViewModel: ViewModel() {
                 "check" to false
         ))
     }
-    fun saveFeed(invoice: String, tgl: String, pakan: String, jenis: String, jmlh: Int, total: Int)=viewModelScope.launch {
+    fun saveFeed(invoice: String, tgl: String, pakan: String, jenis: Int, jmlh: Int, total: Int)=viewModelScope.launch {
         var feedRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("feed")
             feedRef.document(invoice).set(mapOf(
                     "id" to invoice,
