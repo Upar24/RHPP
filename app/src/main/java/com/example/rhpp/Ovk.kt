@@ -88,7 +88,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(!binding.etAmount.text.toString().equals("")&&!binding.etPrice.text.toString().equals("")){
                     var b = binding.etAmount.text.toString().toInt()
-                    var c = binding.etAmount.text.toString().toInt()
+                    var c = binding.etPrice.text.toString().toInt()
                     var x = b*c
                     binding.etTotalRp.setText(x.toString()) }
                 }
@@ -98,7 +98,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(!binding.etAmount.text.toString().equals("")&&!binding.etPrice.text.toString().equals("")){
                     var b = binding.etAmount.text.toString().toInt()
-                    var c = binding.etAmount.text.toString().toInt()
+                    var c = binding.etPrice.text.toString().toInt()
                     var x = b*c
                     binding.etTotalRp.setText(x.toString()) }
                 }
@@ -134,6 +134,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
                 holder.namaOvk.text = obat.namaOvk
                 holder.harga.text = obat.harga.toString()
                 holder.jumlah.text = obat.jumlah.toString()
+//                holder.total.text = (obat.jumlah?.let { obat.harga?.times(it) }).toString()
                 holder.total.text = obat.total.toString()
                 holder.edit.setOnClickListener{editOvk(obat.id!!)}
                 holder.delete.setOnClickListener{deleteOvk(obat.id!!)}
@@ -211,13 +212,25 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         binding.tvTotalB.visibility=View.GONE
     }
     private fun hideEntry(){
+//        db!!.collection("users").document(args.username).collection("doc")
+//                .document(args.chickIn).collection("ovk").get()
+//                .addOnSuccessListener { document ->
+//                    var totalRp = 0
+//                     for (doc in document) {
+//                        var b = doc.get("total").toString().toInt()
+//                         totalRp= totalRp + b
+//                         binding.tvTotalB.text = totalRp.toString()
+//                       }
+//                }
         db!!.collection("users").document(args.username).collection("doc")
                 .document(args.chickIn).collection("ovk").get()
                 .addOnSuccessListener { document ->
                     var totalRp = 0
                      for (doc in document) {
-                        var b = doc.get("total").toString().toInt()
-                         totalRp= totalRp + b
+                        var b = doc.get("jumlah").toString().toInt()
+                         var c = doc.get("harga").toString().toInt()
+                         var d = b*c
+                         totalRp= totalRp + d
                          binding.tvTotalB.text = totalRp.toString()
                        }
                 }

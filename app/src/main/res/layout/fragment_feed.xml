@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:text="List Feed"
-            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/fabFeed"
             app:layout_constraintTop_toBottomOf="@+id/etAmount" />
 
@@ -33,7 +32,6 @@
             android:ems="10"
             android:hint="Masukkan no. Invoice"
             android:inputType="textPersonName"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/edDate"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -45,7 +43,6 @@
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etFeed"
             app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
 
@@ -56,7 +53,6 @@
             android:ems="10"
             android:hint="Nama pakan"
             android:inputType="textPersonName"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/spFeed"
             app:layout_constraintTop_toBottomOf="@+id/edDate" />
 
@@ -68,7 +64,6 @@
             android:ems="10"
             android:hint="Jumlah pakan dalam Kg"
             android:inputType="number"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etAmount"
             app:layout_constraintTop_toBottomOf="@+id/spFeed" />
 
@@ -81,7 +76,6 @@
             android:ems="10"
             android:hint="Total (Rp)"
             android:inputType="number"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edTotalFeed" />
 
@@ -107,6 +101,13 @@
                 android:layout_weight="1"
                 android:text="Inv" />
 
+            <TextView
+                android:id="@+id/tvNameFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="J" />
+
 
             <TextView
                 android:id="@+id/tvJumlahF"
@@ -127,14 +128,14 @@
                 android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
-                android:text="E" />
+                android:text="D" />
 
             <TextView
                 android:id="@+id/imDeleteF"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
-                android:text="D" />
+                android:text="E" />
         </LinearLayout>
 
         <EditText
@@ -142,10 +143,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:visibility="visible"
+            android:hint="7500/7600"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:hint="7500/7600"
             app:layout_constraintEnd_toEndOf="@+id/edTotalFeed"
             app:layout_constraintTop_toBottomOf="@+id/etFeed" />
 
@@ -228,7 +228,6 @@
             android:text="Total"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/etAmount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTotalFeed"
@@ -276,6 +275,7 @@
             android:id="@+id/rvListFeed"
             android:layout_width="match_parent"
             android:layout_height="350dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLayout" />

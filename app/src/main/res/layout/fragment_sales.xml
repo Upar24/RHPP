@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Masukkan no. Invoice"
-            android:inputType="number"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="@+id/etDate"
             app:layout_constraintTop_toBottomOf="@+id/etDate" />
 
@@ -191,6 +191,7 @@
             android:id="@+id/tvAbw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:text="x.xx"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/lAbw"
@@ -241,6 +242,7 @@
             android:id="@+id/rvListSales"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             tools:layout_editor_absoluteX="115dp"
             tools:layout_editor_absoluteY="325dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>

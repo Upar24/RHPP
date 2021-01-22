@@ -5,12 +5,12 @@ class Pakan {
     var tgl: String? = null
     var namaPakan: String? = null
     var jenis: String? = null
-    var jumlah : Int = 0
-    var total : Int = 0
+    var jumlah : String? = null
+    var total : String? = null
 
     constructor() {}
 
-    constructor(id: String, tgl: String, namaPakan: String,jenis:String,jumlah:Int, total:Int) {
+    constructor(id: String, tgl: String, namaPakan: String,jenis:String,jumlah:String, total:String) {
         this.id = id
         this.tgl = tgl
         this.namaPakan = namaPakan
@@ -19,7 +19,7 @@ class Pakan {
         this.total = total
     }
 
-    constructor( tgl: String, namaPakan: String, jenis:String, jumlah:Int, total:Int) {
+    constructor( tgl: String, namaPakan: String, jenis:String, jumlah:String, total:String) {
         this.id = id
         this.tgl = tgl
         this.namaPakan = namaPakan
@@ -34,7 +34,7 @@ class Pakan {
         result.put("tgl", tgl!!)
         result.put("namaPakan", namaPakan!!)
         result.put("jenis",jenis!!)
-        result.put("jumlah",jumlah!!)
+        result.put("jumlah", jumlah!!)
         result.put("total",total!!)
 
         return result

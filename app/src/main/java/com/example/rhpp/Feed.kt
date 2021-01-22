@@ -1,10 +1,15 @@
 package com.example.rhpp
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.text.Editable
 import android.text.Layout
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -17,6 +22,7 @@ import com.example.rhpp.model.Pakan
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirestoreRegistrar
 import com.google.firebase.firestore.ListenerRegistration
@@ -54,21 +60,53 @@ class Feed: Fragment(R.layout.fragment_feed) {
         binding.rvListFeed.layoutManager = mlayoutManager
         binding.rvListFeed.itemAnimator = DefaultItemAnimator()
         loadPakanList()
+        firestoreListener = db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+                .addSnapshotListener { documentSnapshots, e->
+                    if(e != null){
+                        Log.e(ContentValues.TAG,"Listen Failed",e)
+                        return@addSnapshotListener
+                    }
+                    if(documentSnapshots != null){
+                        pakanList = mutableListOf()
+                        for(doc in documentSnapshots){
+                            val pakan = doc.toObject(Pakan::class.java)
+                            pakan.id= doc.id
+                            pakanList.add(pakan)
+                        }
+                    }
+                    adapter!!.notifyDataSetChanged()
+                    binding.rvListFeed.adapter=adapter
+                }
 
+        Snackbar.make(view, viewModel.username, Snackbar.LENGTH_LONG).show()
+
+
+
+        binding.edTotalFeed.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {
+                if(!binding.spFeed.text.toString().equals("")&&!binding.edTotalFeed.text.toString().equals("")){
+                var b = binding.spFeed.text.toString().toInt()
+                var c = binding.edTotalFeed.text.toString().toInt()
+                var x = b*c
+                binding.etAmount.setText(x.toString()) }}
+
+        })
 
         binding.fabFeed.setOnClickListener{
             viewModel.saveFeed(binding.etInvoice.text.toString(),
                 binding.edDate.text.toString(),
                 binding.etFeed.text.toString(),
-                binding.spFeed.text.toString().toInt(),
-                binding.edTotalFeed.text.toString().toInt(),
-                binding.etAmount.text.toString().toInt())
+                binding.spFeed.text.toString(),
+                binding.edTotalFeed.text.toString(),
+                binding.etAmount.text.toString())
             hideEntry()
         }
     }
 
     private fun loadPakanList() {
-        val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+        val query = db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
         val response = FirestoreRecyclerOptions.Builder<Pakan>()
                 .setQuery(query, Pakan::class.java).build()
         adapter = object : FirestoreRecyclerAdapter<Pakan,PakanViewHolder>(response){
@@ -93,9 +131,28 @@ class Feed: Fragment(R.layout.fragment_feed) {
         binding.rvListFeed.adapter=adapter
     }
 private fun editFeed(id : String){
+    hideRV()
+    db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+            .document(id)
+            .get()
+            .addOnSuccessListener{doc->
+                if(doc != null){
+                    binding.etInvoice.setText(doc.get("id").toString())
+                    binding.edDate.setText(doc.get("tgl").toString())
+                    binding.etFeed.setText(doc.get("namaPakan").toString())
+                    binding.spFeed.setText(doc.get("jenis").toString())
+                    binding.edTotalFeed.setText(doc.get("jumlah").toString())
+                }
+            }
 
 }
     private fun deleteFeed(id:String){
+        db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+                .document(id)
+                .delete()
+                .addOnCompleteListener{
+                    Toast.makeText(activity, "Pakan has been deleted!", Toast.LENGTH_SHORT).show()
+                }
 
     }
     private fun hideRV() {
@@ -125,6 +182,20 @@ private fun editFeed(id : String){
         binding.tvTtl.visibility = View.GONE
     }
     private fun hideEntry() {
+        db.collection("users").document(args.username).collection("doc")
+                .document(args.chickIn).collection("feed").get()
+                .addOnSuccessListener { document ->
+                    var totalKg = 0
+                    var totalRp = 0
+                    for (doc in document) {
+                        var b = doc.get("jumlah").toString().toInt()
+                        var c = doc.get("total").toString().toInt()
+                        totalKg= totalKg + b
+                        totalRp= totalRp + c
+                        binding.tvJmlh.text = totalKg.toString()
+                        binding.tvTtl.text = totalRp.toString()
+                    }
+                }
         binding.tvTitle.visibility = View.GONE
         binding.tvInvoice.visibility = View.GONE
         binding.tvDate.visibility =View.GONE

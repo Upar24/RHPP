@@ -6,18 +6,18 @@ class Penjualan {
     var id: String? = null
     var tgl: String? = null
     var pembeli: String? = null
-    var ekor :  Int? = 0
-    var kg : Double? = 0.00
+    var ekor :  String? = null
+    var kg : String? = null
     var umur : String? = null
-    var abw : Double? = 0.00
-    var hgaransi : Int? = 0
-    var totalsales : Double? = 0.00
-    var umurpanen : Int? = 0
+    var abw : String? = null
+    var hgaransi : String? = null
+    var totalsales : String? = null
+    var umurpanen : String? = null
 
     constructor() {}
 
-    constructor(id:String, tgl: String, pembeli:String, ekor: Int, kg:Double, umur:String, abw:Double,
-    hgaransi:Int, totalsales:Double, umurpanen : Int) {
+    constructor(id:String, tgl: String, pembeli:String, ekor: String, kg:String, umur:String, abw:String,
+    hgaransi:String, totalsales:String, umurpanen : String) {
         this.id = id
         this.tgl = tgl
         this.pembeli = pembeli
@@ -30,8 +30,14 @@ class Penjualan {
         this.umurpanen = umurpanen
     }
 
-    constructor( tgl: String, pembeli:String, ekor: Int, kg:Double, umur:String, abw:Double,
-                 hgaransi:Int, totalsales:Double, umurpanen : Int) {
+    constructor( tgl: String,
+                 pembeli:String,
+                 ekor: String, kg:String,
+                 umur:String,
+                 abw:String,
+                 hgaransi:String,
+                 totalsales:String,
+                 umurpanen : String) {
         this.id = id
         this.tgl = tgl
         this.pembeli = pembeli

@@ -1,7 +1,10 @@
 package com.example.rhpp
 
+import android.content.ContentValues
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import kotlinx.coroutines.launch
@@ -37,7 +40,7 @@ class PlasmaViewModel: ViewModel() {
                 "check" to false
         ))
     }
-    fun saveFeed(invoice: String, tgl: String, pakan: String, jenis: Int, jmlh: Int, total: Int)=viewModelScope.launch {
+    fun saveFeed(invoice: String, tgl: String, pakan: String, jenis: String, jmlh: String, total: String)=viewModelScope.launch {
         var feedRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("feed")
             feedRef.document(invoice).set(mapOf(
                     "id" to invoice,
@@ -59,14 +62,20 @@ class PlasmaViewModel: ViewModel() {
                 "total" to total)
         )
     }
-    fun saveSale(tgl: String,invoice: String,pmbl:String,ekor: Int,kg:Double)=viewModelScope.launch {
+    fun saveSale(tgl: String,invoice: String,pmbl:String,ekor: String,kg:String,
+                umur:String, abw:String, hgaransi:String, up:String)=viewModelScope.launch {
         var saleRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("sales")
         saleRef.document(invoice).set(mapOf(
                 "tgl" to tgl,
-                "invoice" to invoice,
+                "id" to invoice,
                 "pembeli" to pmbl,
                 "ekor" to ekor,
-                "kg" to kg)
+                "kg" to kg,
+                "umur" to umur,
+                "abw" to abw,
+                "hgaransi" to hgaransi,
+                "umurpanen" to up,
+        )
         )
 
     }

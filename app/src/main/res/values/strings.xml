@@ -9,9 +9,9 @@
         <item>Technical Service</item>
         <item>Plasma</item>
     </string-array>
-    <string-array name="feedType">
-        <item>Starter</item>
-        <item>Finisher</item>
-    </string-array>
+    <string-array name="jenis_pakan">
+    <item>starter</item>
+    <item>finisher</item>
+</string-array>
 
 </resources>
