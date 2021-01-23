@@ -67,6 +67,9 @@
         <argument
             android:name="chickIn"
             app:argType="string" />
+        <action
+            android:id="@+id/action_plasma_to_IP"
+            app:destination="@id/IP" />
     </fragment>
 
     <fragment
@@ -143,6 +146,21 @@
             app:argType="string" />
         <argument
             android:name="jbtn"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/IP"
+        android:name="com.example.rhpp.IP"
+        android:label="IP"
+        tools:layout="@layout/fragment_ip">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="jbtn"
+            app:argType="string" />
+        <argument
+            android:name="chickIn"
             app:argType="string" />
     </fragment>
 </navigation>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.rhpp.PlasmaViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnOkIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            app:layout_constraintEnd_toEndOf="@+id/checkAdminIp"
+            app:layout_constraintTop_toBottomOf="@+id/checkAdminIp" />
+
+        <CheckBox
+            android:id="@+id/checkAdminIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Valid by Admin"
+            app:layout_constraintEnd_toEndOf="@+id/tvIp"
+            app:layout_constraintTop_toBottomOf="@+id/lblIp" />
+
+        <TextView
+            android:id="@+id/labelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="Laporan Indek Pemeliharaan"
+            android:textSize="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblIp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="Data Panen "
+            app:layout_constraintEnd_toEndOf="@+id/labelTitle"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/labelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
+
+        <TextView
+            android:id="@+id/lblTerjualIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Total Ayam Terjual (Kg)"
+            app:layout_constraintStart_toStartOf="@+id/lblEkorIp"
+            app:layout_constraintTop_toBottomOf="@+id/lblEkorIp" />
+
+        <TextView
+            android:id="@+id/lblEkorIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Total Ayam Terjual (Ekor)"
+            app:layout_constraintStart_toStartOf="@+id/lblKapasita"
+            app:layout_constraintTop_toBottomOf="@+id/lblKapasita" />
+
+        <TextView
+            android:id="@+id/lblKonsumsiIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Total Konsumsi Pakan"
+            app:layout_constraintStart_toStartOf="@+id/lblTerjualIp"
+            app:layout_constraintTop_toBottomOf="@+id/lblTerjualIp" />
+
+        <TextView
+            android:id="@+id/lblKapasita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Kapasitan Ayam"
+            app:layout_constraintStart_toStartOf="@+id/labelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/lblIp1" />
+
+        <TextView
+            android:id="@+id/tvTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="Perhitungan IP"
+            app:layout_constraintEnd_toEndOf="@+id/lblIp1"
+            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintStart_toStartOf="@+id/lblIp1"
+            app:layout_constraintTop_toBottomOf="@+id/lblKonsumsiIp" />
+
+        <TextView
+            android:id="@+id/lblFcr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="FCR"
+            app:layout_constraintStart_toStartOf="@+id/lblKonsumsiIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle2" />
+
+        <TextView
+            android:id="@+id/lblAbw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="ABW"
+            app:layout_constraintStart_toStartOf="@+id/lblFcr"
+            app:layout_constraintTop_toBottomOf="@+id/lblFcr" />
+
+        <TextView
+            android:id="@+id/lblLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Live"
+            app:layout_constraintStart_toStartOf="@+id/lblAbw"
+            app:layout_constraintTop_toBottomOf="@+id/lblAbw" />
+
+        <TextView
+            android:id="@+id/lblUmur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Umur"
+            app:layout_constraintStart_toStartOf="@+id/lblLive"
+            app:layout_constraintTop_toBottomOf="@+id/lblLive" />
+
+        <TextView
+            android:id="@+id/tvFcrIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/lblFcr"
+            app:layout_constraintStart_toEndOf="@+id/lblFcr"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/tvAbwIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="@+id/tvFcrIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvFcrIp" />
+
+        <TextView
+            android:id="@+id/tvLiveIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="@+id/tvAbwIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAbwIp" />
+
+        <TextView
+            android:id="@+id/tvUmurIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="@+id/tvLiveIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvLiveIp" />
+
+        <TextView
+            android:id="@+id/lblIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="232dp"
+            android:layout_marginTop="44dp"
+            android:text="IP"
+            android:textSize="45dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle2" />
+
+        <TextView
+            android:id="@+id/tvIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="44dp"
+            android:text="0"
+            android:textSize="45dp"
+            app:layout_constraintStart_toEndOf="@+id/lblIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle2" />
+
+        <TextView
+            android:id="@+id/tvKapasitasIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@+id/labelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
+
+        <TextView
+            android:id="@+id/tvEkorIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@+id/tvKapasitasIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvKapasitasIp" />
+
+        <TextView
+            android:id="@+id/tvKgIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@+id/tvEkorIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvEkorIp" />
+
+        <TextView
+            android:id="@+id/tvKonsumsiIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="@+id/tvKgIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvKgIp" />
+
+        <TextView
+            android:id="@+id/tvPlasma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/labelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
+
+        <TextView
+            android:id="@+id/tvDateChickIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/labelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

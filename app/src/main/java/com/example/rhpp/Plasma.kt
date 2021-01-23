@@ -52,6 +52,9 @@ class Plasma : Fragment(R.layout.fragment_plasma) {
         binding.btnPenjualan.setOnClickListener {
             findNavController().navigate(PlasmaDirections.actionPlasmaToSales(args.username,args.chickIn,args.jbtn))
         }
+        binding.btnIp.setOnClickListener {
+            findNavController().navigate(PlasmaDirections.actionPlasmaToIP(args.username,args.jbtn,args.chickIn))
+        }
 
 
 
