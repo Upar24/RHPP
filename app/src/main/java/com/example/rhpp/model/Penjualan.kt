@@ -11,13 +11,12 @@ class Penjualan {
     var umur : String? = null
     var abw : String? = null
     var hgaransi : String? = null
-    var totalsales : String? = null
-    var umurpanen : String? = null
+    var total : String? = null
 
     constructor() {}
 
     constructor(id:String, tgl: String, pembeli:String, ekor: String, kg:String, umur:String, abw:String,
-    hgaransi:String, totalsales:String, umurpanen : String) {
+    hgaransi:String, total:String) {
         this.id = id
         this.tgl = tgl
         this.pembeli = pembeli
@@ -26,8 +25,7 @@ class Penjualan {
         this.umur = umur
         this.abw = abw
         this.hgaransi= hgaransi
-        this.totalsales = totalsales
-        this.umurpanen = umurpanen
+        this.total = total
     }
 
     constructor( tgl: String,
@@ -35,9 +33,7 @@ class Penjualan {
                  ekor: String, kg:String,
                  umur:String,
                  abw:String,
-                 hgaransi:String,
-                 totalsales:String,
-                 umurpanen : String) {
+                 hgaransi:String,total: String) {
         this.id = id
         this.tgl = tgl
         this.pembeli = pembeli
@@ -46,8 +42,7 @@ class Penjualan {
         this.umur = umur
         this.abw = abw
         this.hgaransi= hgaransi
-        this.totalsales = totalsales
-        this.umurpanen = umurpanen
+        this.total = total
     }
 
     fun toMap(): Map<String, Any> {
@@ -60,8 +55,7 @@ class Penjualan {
         result.put("umur",umur!!)
         result.put("abw",abw!!)
         result.put("hgaransi",hgaransi!!)
-        result.put("totalsales",totalsales!!)
-        result.put("umurpanen",umurpanen!!)
+        result.put("total",total!!)
 
         return result
     }

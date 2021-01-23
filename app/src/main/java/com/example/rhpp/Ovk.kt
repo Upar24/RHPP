@@ -212,28 +212,28 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         binding.tvTotalB.visibility=View.GONE
     }
     private fun hideEntry(){
-//        db!!.collection("users").document(args.username).collection("doc")
-//                .document(args.chickIn).collection("ovk").get()
-//                .addOnSuccessListener { document ->
-//                    var totalRp = 0
-//                     for (doc in document) {
-//                        var b = doc.get("total").toString().toInt()
-//                         totalRp= totalRp + b
-//                         binding.tvTotalB.text = totalRp.toString()
-//                       }
-//                }
         db!!.collection("users").document(args.username).collection("doc")
                 .document(args.chickIn).collection("ovk").get()
                 .addOnSuccessListener { document ->
                     var totalRp = 0
                      for (doc in document) {
-                        var b = doc.get("jumlah").toString().toInt()
-                         var c = doc.get("harga").toString().toInt()
-                         var d = b*c
-                         totalRp= totalRp + d
+                        var b = doc.get("total").toString().toInt()
+                         totalRp= totalRp + b
                          binding.tvTotalB.text = totalRp.toString()
                        }
                 }
+//        db!!.collection("users").document(args.username).collection("doc")
+//                .document(args.chickIn).collection("ovk").get()
+//                .addOnSuccessListener { document ->
+//                    var totalRp = 0
+//                     for (doc in document) {
+//                        var b = doc.get("jumlah").toString().toInt()
+//                         var c = doc.get("harga").toString().toInt()
+//                         var d = b*c
+//                         totalRp= totalRp + d
+//                         binding.tvTotalB.text = totalRp.toString()
+//                       }
+//                }
         binding.tvTitle.visibility = View.GONE
         binding.tvInvoice.visibility = View.GONE
         binding.tvDate.visibility = View.GONE

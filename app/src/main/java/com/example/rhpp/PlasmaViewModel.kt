@@ -63,7 +63,7 @@ class PlasmaViewModel: ViewModel() {
         )
     }
     fun saveSale(tgl: String,invoice: String,pmbl:String,ekor: String,kg:String,
-                umur:String, abw:String, hgaransi:String, up:String)=viewModelScope.launch {
+                umur:String, abw:String, hgaransi:String, total:String)=viewModelScope.launch {
         var saleRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("sales")
         saleRef.document(invoice).set(mapOf(
                 "tgl" to tgl,
@@ -74,8 +74,7 @@ class PlasmaViewModel: ViewModel() {
                 "umur" to umur,
                 "abw" to abw,
                 "hgaransi" to hgaransi,
-                "umurpanen" to up,
-        )
+                "total" to total)
         )
 
     }

@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -36,10 +37,10 @@ class Sales: Fragment(R.layout.fragment_sales) {
     private val binding get() = _binding!!
     private val args : SalesArgs by navArgs()
     private val viewModel :  PlasmaViewModel by viewModels()
-//    private val db = FirebaseFirestore.getInstance()
-//    private var adapter: FirestoreRecyclerAdapter<Penjualan, SalesViewHolder>? = null
-//    private var firestoreListener: ListenerRegistration? = null
-//    private var salesList = mutableListOf<Penjualan>()
+    private val db = FirebaseFirestore.getInstance()
+    private var adapter: FirestoreRecyclerAdapter<Penjualan, SalesViewHolder>? = null
+    private var firestoreListener: ListenerRegistration? = null
+    private var salesList = mutableListOf<Penjualan>()
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -55,29 +56,30 @@ class Sales: Fragment(R.layout.fragment_sales) {
         binding.etDate.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
         viewModel.username = args.username
         viewModel.idDocc = args.chickIn
-//        val mLayoutManager = LinearLayoutManager(activity)
-//        binding.rvListSales.layoutManager = mLayoutManager
-//        binding.rvListSales.itemAnimator = DefaultItemAnimator()
+        val mLayoutManager = LinearLayoutManager(activity)
+        binding.rvListSales.layoutManager = mLayoutManager
+        binding.rvListSales.itemAnimator = DefaultItemAnimator()
 
-//        loadPenjualanList()
+        loadPenjualanList()
+        hideRv()
 
-//        firestoreListener= db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
-//                .addSnapshotListener { documentSnapshots, e->
-//                    if(e != null){
-//                        Log.e(ContentValues.TAG,"Listen Failed",e)
-//                        return@addSnapshotListener
-//                    }
-//                    if(documentSnapshots != null){
-//                        salesList = mutableListOf()
-//                        for(doc in documentSnapshots){
-//                            val sales = doc.toObject(Penjualan::class.java)
-//                            sales.id= doc.id
-//                            salesList.add(sales)
-//                        }
-//                    }
-//                    adapter!!.notifyDataSetChanged()
-//                    binding.rvListSales.adapter=adapter
-//                }
+        firestoreListener= db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+                .addSnapshotListener { documentSnapshots, e->
+                    if(e != null){
+                        Log.e(ContentValues.TAG,"Listen Failed",e)
+                        return@addSnapshotListener
+                    }
+                    if(documentSnapshots != null){
+                        salesList = mutableListOf()
+                        for(doc in documentSnapshots){
+                            val sales = doc.toObject(Penjualan::class.java)
+                            sales.id= doc.id
+                            salesList.add(sales)
+                        }
+                    }
+                    adapter!!.notifyDataSetChanged()
+                    binding.rvListSales.adapter=adapter
+                }
         binding.btnListSales.setOnClickListener {
             hideEntry()
         }
@@ -121,7 +123,8 @@ class Sales: Fragment(R.layout.fragment_sales) {
                     if(abw in 1.901..2.000){binding.tvHargaGrns.text=16550.toString()}
                     if(abw in 2.001..2.100){binding.tvHargaGrns.text=16500.toString()}
                     if(abw in 2.101..3.100){binding.tvHargaGrns.text=10000.toString()}
-                    binding.tvTotalSales.setText((binding.tvHargaGrns.text.toString().toInt()*c).toString())
+                    var x = binding.tvHargaGrns.text.toString().toInt()*c
+                    binding.tvTotalSales.setText(Math.round(x).toString())
 
                 }}
             override fun afterTextChanged(p0: Editable?) {}
@@ -135,7 +138,7 @@ class Sales: Fragment(R.layout.fragment_sales) {
                     binding.tvUmur.text.toString(),
                     binding.tvAbw.text.toString(),
             binding.tvHargaGrns.text.toString(),
-            binding.tvTotalSales.toString())
+            binding.tvTotalSales.text.toString())
             hideEntry()
         }
 
@@ -144,33 +147,115 @@ class Sales: Fragment(R.layout.fragment_sales) {
 
     }
 
-//    private fun loadPenjualanList() {val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
-//        val response = FirestoreRecyclerOptions.Builder<Penjualan>()
-//                .setQuery(query,Penjualan::class.java).build()
-//        adapter = object : FirestoreRecyclerAdapter<Penjualan, SalesViewHolder>(response) {
-//            override fun onBindViewHolder(holder: SalesViewHolder, position: Int, model: Penjualan) {
-//                val pnjln = salesList[position]
-//                holder.id.text = pnjln.id
-//                holder.tgl.text = pnjln.tgl
-//                holder.ekor.text = pnjln.ekor.toString()
-//                holder.kg.text = pnjln.kg.toString()
-//                holder.total.text = pnjln.totalsales.toString()
-//                holder.edit.setOnClickListener{editSales(pnjln.id!!)}
-//                holder.delete.setOnClickListener{deleteSales(pnjln.id!!)}
-//            }
-//
-//            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SalesViewHolder {
-//                val view = LayoutInflater.from(parent.context)
-//                        .inflate(R.layout.item_sales,parent,false)
-//                return SalesViewHolder(view)
-//            }
-//        }
-//        adapter!!.notifyDataSetChanged()
-//        binding.rvListSales.adapter=adapter
-//    }
-//private fun editSales(id:String){}
-//    private fun deleteSales(id:String){}
+    private fun loadPenjualanList() {val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+        val response = FirestoreRecyclerOptions.Builder<Penjualan>()
+                .setQuery(query,Penjualan::class.java).build()
+        adapter = object : FirestoreRecyclerAdapter<Penjualan, SalesViewHolder>(response) {
+            override fun onBindViewHolder(holder: SalesViewHolder, position: Int, model: Penjualan) {
+                val pnjln = salesList[position]
+                holder.id.text = pnjln.id
+                holder.tgl.text = pnjln.tgl
+                holder.ekor.text = pnjln.ekor
+                holder.kg.text = pnjln.kg!!.format("%.2f",pnjln.kg)
+//                holder.total.text = String.format("%,d",pnjln.total,(Locale.getDefault()))
+                holder.total.text = pnjln.total
+//                holder.total.text = (pnjln.kg?.toDouble().let {
+//                    if (it != null) {
+//                        pnjln.hgaransi?.toInt()?.times(it)
+//                    }
+//                }).toString()
+//                holder.total.text = (obat.jumlah?.let { obat.harga?.times(it) }).toString()
+//                holder.total.text = {totalsales(pnjln.id!!)}
+                holder.edit.setOnClickListener{editSales(pnjln.id!!)}
+                holder.delete.setOnClickListener{deleteSales(pnjln.id!!)}
+            }
+
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SalesViewHolder {
+                val view = LayoutInflater.from(parent.context)
+                        .inflate(R.layout.item_sales,parent,false)
+                return SalesViewHolder(view)
+            }
+        }
+        adapter!!.notifyDataSetChanged()
+        binding.rvListSales.adapter=adapter
+    }
+private fun editSales(id:String){
+    hideRv()
+    db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+            .document(id)
+            .get()
+            .addOnSuccessListener{doc->
+                if(doc != null){
+                    binding.etDate.setText(doc.get("tgl").toString())
+                    binding.etInvoice.setText(doc.get("id").toString())
+                    binding.etBuyer.setText(doc.get("pembeli").toString())
+                    binding.etEkor.setText(doc.get("ekor").toString())
+                    binding.etKg.setText(doc.get("kg").toString())
+                }
+            }
+}
+    private fun deleteSales(id:String){
+        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+                .document(id)
+                .delete()
+                .addOnCompleteListener{
+                    Toast.makeText(activity, "Sales has been deleted!", Toast.LENGTH_SHORT).show()
+                }
+    }
+    private fun hideRv(){
+        binding.etDate.visibility = View.VISIBLE
+        binding.etInvoice.visibility = View.VISIBLE
+        binding.etBuyer.visibility = View.VISIBLE
+        binding.etEkor.visibility = View.VISIBLE
+        binding.etKg.visibility = View.VISIBLE
+        binding.tvTotalSales.visibility = View.VISIBLE
+        binding.tvTitle.visibility = View.VISIBLE
+        binding.tvDate.visibility = View.VISIBLE
+        binding.tvKg.visibility = View.VISIBLE
+        binding.tvEkor.visibility = View.VISIBLE
+        binding.tvInvoice.visibility = View.VISIBLE
+        binding.tvBuyer.visibility = View.VISIBLE
+        binding.lUmur.visibility = View.VISIBLE
+        binding.tvUmur.visibility = View.VISIBLE
+        binding.lHargaGaransi.visibility = View.VISIBLE
+        binding.lAbw.visibility = View.VISIBLE
+        binding.tvAbw.visibility = View.VISIBLE
+        binding.tvHargaGrns.visibility = View.VISIBLE
+        binding.tvLsales.visibility = View.VISIBLE
+        binding.fabSales.visibility = View.VISIBLE
+        binding.btnListSales.visibility = View.VISIBLE
+
+        binding.rvListSales.visibility = View.GONE
+        binding.idLinear.visibility = View.GONE
+        binding.tvLekor.visibility = View.GONE
+        binding.tvLkg.visibility = View.GONE
+        binding.tvLRp.visibility = View.GONE
+        binding.tvEkorj.visibility = View.GONE
+        binding.tvKgj.visibility = View.GONE
+        binding.tvTotalj.visibility = View.GONE
+    }
     private fun hideEntry() {
+        db!!.collection("users").document(args.username).collection("doc")
+            .document(args.chickIn).collection("sales").get()
+            .addOnSuccessListener { document ->
+                var totalEkor = 0
+                var totalKg = 0.00
+                var totalRp : Long = 0
+                for (doc in document) {
+                    var b = doc.get("ekor").toString().toInt()
+                    var c = doc.get("kg").toString().toFloat()
+                    var d = doc.get("total").toString().toLong()
+                    totalEkor += b
+                    totalKg += c
+//                    String.format("%.2f",totalKg)
+                    totalKg = totalKg * 100
+                    totalKg = totalKg / 100
+                    totalRp += d
+                    binding.tvEkorj.text = totalEkor.toString()
+                    binding.tvKgj.text = totalKg.toString().format("%2.f")
+                    binding.tvTotalj.text = totalRp.toString()
+                }
+            }
         binding.etDate.visibility = View.GONE
         binding.etInvoice.visibility = View.GONE
         binding.etBuyer.visibility = View.GONE
@@ -194,23 +279,30 @@ class Sales: Fragment(R.layout.fragment_sales) {
         binding.btnListSales.visibility = View.GONE
 
         binding.rvListSales.visibility = View.VISIBLE
+        binding.idLinear.visibility = View.VISIBLE
+        binding.tvLekor.visibility = View.VISIBLE
+        binding.tvLkg.visibility = View.VISIBLE
+        binding.tvLRp.visibility = View.VISIBLE
+        binding.tvEkorj.visibility = View.VISIBLE
+        binding.tvKgj.visibility = View.VISIBLE
+        binding.tvTotalj.visibility = View.VISIBLE
     }
 
 
     override fun onDestroy() {
         super.onDestroy()
-//        firestoreListener!!.remove()
+        firestoreListener!!.remove()
         _binding = null
     }
     public override fun onStart() {
         super.onStart()
 
-//        adapter!!.startListening()
+        adapter!!.startListening()
     }
 
     public override fun onStop() {
         super.onStop()
 
-//        adapter!!.stopListening()
+        adapter!!.stopListening()
     }
 }
