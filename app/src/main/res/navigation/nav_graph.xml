@@ -36,6 +36,12 @@
         <argument
             android:name="chickIn"
             app:argType="string" />
+        <action
+            android:id="@+id/action_internal_to_IP"
+            app:destination="@id/IP" />
+        <action
+            android:id="@+id/action_internal_to_rhpp"
+            app:destination="@id/rhpp" />
     </fragment>
 
     <fragment
@@ -70,6 +76,9 @@
         <action
             android:id="@+id/action_plasma_to_IP"
             app:destination="@id/IP" />
+        <action
+            android:id="@+id/action_plasma_to_rhpp"
+            app:destination="@id/rhpp" />
     </fragment>
 
     <fragment
@@ -161,6 +170,20 @@
             app:argType="string" />
         <argument
             android:name="chickIn"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/rhpp"
+        android:name="com.example.rhpp.Rhpp"
+        android:label="Rhpp"
+        tools:layout="@layout/fragment_rhpp">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument android:name="chickin"
+            app:argType="string" />
+        <argument
+            android:name="jbtn"
             app:argType="string" />
     </fragment>
 </navigation>

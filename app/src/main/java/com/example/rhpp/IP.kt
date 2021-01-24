@@ -50,9 +50,9 @@ class IP : Fragment(R.layout.fragment_ip){
                     var umurp = binding.tvUmurIp.text.toString().toFloat()
                     var fcr = Math.round((konsumsi / kg) * 100.0) / 100.0
                     var abw = Math.round((kg / ekor) * 100.0) / 100.0
-                    var live = Math.round(((ekor * 100) / kapasitas) * 100.0) / 100.0
-                    var umur = Math.round(umurp * 100.0) / 100.0
-                    var ip = Math.round((live * 100 * abw) / (umur * fcr) * 1.0) / 1.0
+                    var live = Math.round(((ekor * 100) / kapasitas).toDouble())
+                    var umur = Math.round(umurp)
+                    var ip = Math.round((live * 100 * abw) / (umur * fcr))
                     binding.tvFcrIp.text = fcr.toString()
                     binding.tvAbwIp.text = abw.toString()
                     binding.tvLiveIp.text = live.toString()
@@ -67,14 +67,11 @@ class IP : Fragment(R.layout.fragment_ip){
                     if (doc != null)
                     {if(doc.get("validAdmin") == true){
                         binding.checkAdminIp.isChecked = true }}
-                }},800)
+                }},500)
 
 
         binding.checkAdminIp.setOnCheckedChangeListener{buttomView,isChecked ->
             if(binding.checkAdminIp.isChecked)
-                db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ip")
-                        .document(binding.tvDateChickIn.text.toString())
-                        .update("validAdmin",true)
             viewModel.saveIP(binding.tvFcrIp.text.toString(),binding.tvAbwIp.text.toString(),
             binding.tvLiveIp.text.toString(),binding.tvUmurIp.text.toString(),binding.tvIp.text.toString(),
             binding.tvDateChickIn.text.toString())

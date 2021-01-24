@@ -89,4 +89,17 @@ class PlasmaViewModel: ViewModel() {
                 "validAdmin" to true
         ))
     }
+    fun saveRHPP(id:String,penj:String, bop:String, bonus_ip: String, bibit:String, pakan:String, ovk:String){
+        var rhppRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("rhpp")
+        rhppRef.document(id).set(mapOf(
+                "id" to id,
+                "penj_ayam" to penj,
+                "bop" to bop,
+                "bonus_ip" to bonus_ip,
+                "bibit" to bibit,
+                "pakan" to pakan,
+                "ovk" to ovk,
+                "validAdmin" to true
+        ))
+    }
 }

@@ -55,6 +55,9 @@ class Plasma : Fragment(R.layout.fragment_plasma) {
         binding.btnIp.setOnClickListener {
             findNavController().navigate(PlasmaDirections.actionPlasmaToIP(args.username,args.jbtn,args.chickIn))
         }
+        binding.btnRhpp.setOnClickListener {
+            findNavController().navigate(PlasmaDirections.actionPlasmaToRhpp(args.username,args.chickIn,args.jbtn))
+        }
 
 
 
