@@ -1,6 +1,7 @@
 package com.example.rhpp
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -34,14 +35,33 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
         binding.tvChickInRh.text = args.chickin
         loadRHPP()
         binding.adminCheck.setOnCheckedChangeListener{bottomView,isChecked ->
-            if(binding.adminCheck.isChecked)
-
+            if(binding.adminCheck.isChecked){
+                viewModel.saveRHPP(args.chickin,binding.tvPenjRpRh.text.toString(),binding.tvBopRh.text.toString(),
+                binding.tvBonusIpRh.text.toString(),binding.tvBibitRh.text.toString(),binding.tvPakanRh.text.toString(),
+                binding.tvOvkRh.text.toString())
+            }
         }
+        binding.checkManager.setOnCheckedChangeListener{bottomView,isChecked ->
+            db!!.collection("users").document(args.username).collection("doc").document(args.chickin).collection("rhpp")
+                    .document(args.chickin)
+                    .update(mapOf("validManager" to true))
+        }
+        Handler().postDelayed( {db!!.collection("users").document(args.username).collection("doc").document(args.chickin).collection("rhpp")
+                .document(args.chickin)
+                .get()
+                .addOnSuccessListener { doc ->
+                    if (doc != null)
+                    if(doc.get("validAdmin") == true){
+                        binding.adminCheck.isChecked = true }
+                    if(doc.get("validManager")==true){
+                        binding.checkManager.isChecked=true
+                    }
+                }},500)
 
 
 
 
-        binding.tvQtyRh.addTextChangedListener(object :TextWatcher{
+        binding.tvOvkRh.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
