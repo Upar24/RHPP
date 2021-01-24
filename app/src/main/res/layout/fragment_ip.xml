@@ -14,14 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnOkIp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OK"
-            app:layout_constraintEnd_toEndOf="@+id/checkAdminIp"
-            app:layout_constraintTop_toBottomOf="@+id/checkAdminIp" />
-
         <CheckBox
             android:id="@+id/checkAdminIp"
             android:layout_width="wrap_content"
@@ -142,7 +134,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="0"
             app:layout_constraintBottom_toBottomOf="@+id/lblFcr"
             app:layout_constraintStart_toEndOf="@+id/lblFcr"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle2"
@@ -153,7 +144,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             app:layout_constraintStart_toStartOf="@+id/tvFcrIp"
             app:layout_constraintTop_toBottomOf="@+id/tvFcrIp" />
 
@@ -162,7 +152,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             app:layout_constraintStart_toStartOf="@+id/tvAbwIp"
             app:layout_constraintTop_toBottomOf="@+id/tvAbwIp" />
 
@@ -171,7 +160,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             app:layout_constraintStart_toStartOf="@+id/tvLiveIp"
             app:layout_constraintTop_toBottomOf="@+id/tvLiveIp" />
 
@@ -192,7 +180,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="44dp"
-            android:text="0"
             android:textSize="45dp"
             app:layout_constraintStart_toEndOf="@+id/lblIp"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle2" />
@@ -202,7 +189,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="84dp"
-            android:text="0"
             app:layout_constraintEnd_toEndOf="@+id/labelTitle"
             app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
 
@@ -211,7 +197,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             app:layout_constraintEnd_toEndOf="@+id/tvKapasitasIp"
             app:layout_constraintTop_toBottomOf="@+id/tvKapasitasIp" />
 
@@ -220,7 +205,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             app:layout_constraintEnd_toEndOf="@+id/tvEkorIp"
             app:layout_constraintTop_toBottomOf="@+id/tvEkorIp" />
 
@@ -229,7 +213,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0"
             app:layout_constraintEnd_toEndOf="@+id/tvKgIp"
             app:layout_constraintTop_toBottomOf="@+id/tvKgIp" />
 
@@ -248,5 +231,14 @@
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/labelTitle"
             app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:text="%"
+            app:layout_constraintStart_toEndOf="@+id/tvLiveIp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

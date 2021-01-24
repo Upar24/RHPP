@@ -78,6 +78,15 @@ class PlasmaViewModel: ViewModel() {
         )
 
     }
-
-
+    fun saveIP(fcr:String, abw:String, live:String, umur:String, ip:String, chickIn:String)=viewModelScope.launch {
+        var ipRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("ip")
+        ipRef.document(chickIn).set(mapOf(
+                "fcr" to fcr,
+                "abw" to abw,
+                "live" to live,
+                "umur" to umur,
+                "ip" to ip,
+                "validAdmin" to true
+        ))
+    }
 }

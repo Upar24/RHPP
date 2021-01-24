@@ -1,6 +1,7 @@
 package com.example.rhpp
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.rhpp.databinding.FragmentDocBinding
 import com.example.rhpp.databinding.FragmentIpBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 
 class IP : Fragment(R.layout.fragment_ip){
@@ -29,6 +31,8 @@ class IP : Fragment(R.layout.fragment_ip){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.username = args.username
+        viewModel.idDocc = args.chickIn
         loadIP()
         binding.tvDateChickIn.text = args.chickIn
         binding.tvKonsumsiIp.addTextChangedListener(object : TextWatcher {
@@ -39,8 +43,8 @@ class IP : Fragment(R.layout.fragment_ip){
                         && !binding.tvEkorIp.text.toString().equals("")
                         && !binding.tvKgIp.text.toString().equals("")
                         && !binding.tvKonsumsiIp.text.toString().equals("")) {
-                    var kapasitas = binding.tvKapasitasIp.text.toString().toLong()
-                    var ekor = binding.tvEkorIp.text.toString().toFloat()
+                    var kapasitas = binding.tvKapasitasIp.text.toString().toInt()
+                    var ekor = binding.tvEkorIp.text.toString().toInt()
                     var kg = binding.tvKgIp.text.toString().toFloat()
                     var konsumsi = binding.tvKonsumsiIp.text.toString().toInt()
                     var umurp = binding.tvUmurIp.text.toString().toFloat()
@@ -55,8 +59,26 @@ class IP : Fragment(R.layout.fragment_ip){
                     binding.tvIp.text = ip.toString()
                 }
             }
-
         })
+        Handler().postDelayed( {db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ip")
+                .document(args.chickIn)
+                .get()
+                .addOnSuccessListener { doc ->
+                    if (doc != null)
+                    {if(doc.get("validAdmin") == true){
+                        binding.checkAdminIp.isChecked = true }}
+                }},800)
+
+
+        binding.checkAdminIp.setOnCheckedChangeListener{buttomView,isChecked ->
+            if(binding.checkAdminIp.isChecked)
+                db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ip")
+                        .document(binding.tvDateChickIn.text.toString())
+                        .update("validAdmin",true)
+            viewModel.saveIP(binding.tvFcrIp.text.toString(),binding.tvAbwIp.text.toString(),
+            binding.tvLiveIp.text.toString(),binding.tvUmurIp.text.toString(),binding.tvIp.text.toString(),
+            binding.tvDateChickIn.text.toString())
+        }
     }
 
     private fun loadIP(){
