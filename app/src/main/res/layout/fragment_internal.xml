@@ -15,134 +15,107 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btnReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="33dp"
-            android:text="Lap. IP"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/btnPlasmaList"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <Button
             android:id="@+id/btnPlasmaList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="68dp"
+            android:layout_marginTop="76dp"
             android:text="Daftar Plasma"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnReport" />
-
-        <Button
-            android:id="@+id/btnReportRhpp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lap. RHPP"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/btnReport" />
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
-            android:id="@+id/etdStart"
+            android:id="@+id/edTglAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="19dp"
             android:ems="10"
-            android:hint="mulai tanggal"
+            android:hint="disini"
             android:inputType="date"
-            app:layout_constraintStart_toEndOf="@+id/tvDateEnd"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/etdEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:ems="10"
-            android:hint="sampai tanggal"
-            android:inputType="date"
-            app:layout_constraintBaseline_toBaselineOf="@+id/tvDateEnd"
-            app:layout_constraintStart_toStartOf="@+id/etdStart" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvListPlasma" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="290dp"
             android:layout_height="0dp"
-            android:layout_marginTop="122dp"
-            android:layout_marginBottom="121dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="188dp"
             android:src="@drawable/logo"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/btnReport"
-            app:layout_constraintEnd_toEndOf="@+id/btnPlasmaList"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/btnPlasmaList"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvDateStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:visibility="gone"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="30dp"
-            android:text="Mulai"
-            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/edTglAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:id="@+id/idLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/rvListPlasma"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                android:id="@+id/tvPlasmaId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Username"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/tvPlasmaname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nama"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/imIP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="IP" />
+
+            <TextView
+                android:id="@+id/imRHPP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="RHPP" />
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tvDateEnd"
+            android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginTop="23dp"
-            android:text="Sampai"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvDateStart"
-            app:layout_constraintTop_toBottomOf="@+id/etdStart" />
+            android:layout_marginTop="12dp"
+            android:text="pilih tgl ayam masuk untuk melihat IP dan RHPP(wajib)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edTglAll" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvIpList"
+            android:id="@+id/rvListPlasma"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/tvDateEnd"
-            app:layout_constraintTop_toBottomOf="@+id/etdEnd" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRhppList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/tvDateEnd"
-            app:layout_constraintTop_toBottomOf="@+id/etdEnd" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPlasmaList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/fabInternal"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabInternal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_add"
+            android:layout_height="350dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

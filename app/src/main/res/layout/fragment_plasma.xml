@@ -18,76 +18,174 @@
             android:id="@+id/btnDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="86dp"
-            android:layout_marginBottom="330dp"
+            android:layout_marginTop="8dp"
             android:text="Harian"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/btnDoc"
+            app:layout_constraintTop_toBottomOf="@+id/btnDoc" />
 
         <Button
             android:id="@+id/btnFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:text="Pakan"
-            app:layout_constraintStart_toStartOf="@+id/btnDaily"
-            app:layout_constraintTop_toBottomOf="@+id/btnDaily" />
+            app:layout_constraintStart_toStartOf="@+id/btnPenjualan"
+            app:layout_constraintTop_toBottomOf="@+id/btnPenjualan" />
 
         <Button
             android:id="@+id/btnDoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="DOC"
-            app:layout_constraintStart_toStartOf="@+id/btnFeed"
-            app:layout_constraintTop_toBottomOf="@+id/btnFeed" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
             android:id="@+id/btnOvk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="OVK"
-            app:layout_constraintEnd_toEndOf="@+id/btnIp"
-            app:layout_constraintTop_toTopOf="@+id/btnDaily" />
+            app:layout_constraintStart_toStartOf="@+id/btnFeed"
+            app:layout_constraintTop_toBottomOf="@+id/btnFeed" />
 
         <Button
             android:id="@+id/btnIp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="IP"
-            app:layout_constraintEnd_toEndOf="@+id/btnRhpp"
-            app:layout_constraintTop_toTopOf="@+id/btnFeed" />
+            app:layout_constraintStart_toStartOf="@+id/btnOvk"
+            app:layout_constraintTop_toBottomOf="@+id/btnOvk" />
 
         <Button
             android:id="@+id/btnRhpp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="88dp"
+            android:layout_marginTop="8dp"
             android:text="RHPP"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnDoc" />
+            app:layout_constraintStart_toStartOf="@+id/btnIp"
+            app:layout_constraintTop_toBottomOf="@+id/btnIp" />
 
         <Button
             android:id="@+id/btnPenjualan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="14dp"
-            android:text="Penjualan Ayam"
-            app:layout_constraintEnd_toEndOf="@+id/btnRhpp"
-            app:layout_constraintTop_toBottomOf="@+id/btnDoc" />
+            android:layout_marginTop="8dp"
+            android:text="Sales"
+            app:layout_constraintStart_toStartOf="@+id/btnDaily"
+            app:layout_constraintTop_toBottomOf="@+id/btnDaily" />
+
+        <EditText
+            android:id="@+id/edChickIn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="01-01-2021"
+            android:inputType="date"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginBottom="66dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/logo"
-            app:layout_constraintBottom_toTopOf="@+id/btnDaily"
-            app:layout_constraintEnd_toEndOf="@+id/btnPenjualan"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btnPenjualan" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Belum ada data tgl periode? Silahkan Isi Data bibit terlebih dahulu"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edChickIn" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/black"
+            android:text="Klik untuk entry data bibit ayam masuk"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDoc"
+            app:layout_constraintStart_toEndOf="@+id/btnDoc"
+            app:layout_constraintTop_toTopOf="@+id/btnDoc"
+            app:layout_constraintVertical_bias="0.517" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Klik untuk entry data penjualan ayam"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPenjualan"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/btnPenjualan" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Klik untuk entry data pakan masuk"
+            app:layout_constraintBottom_toBottomOf="@+id/btnFeed"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/btnFeed" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Klik untuk entry data OVK masuk"
+            app:layout_constraintBottom_toBottomOf="@+id/btnOvk"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toTopOf="@+id/btnOvk" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Klik disini untuk Lap. Indeks Pemeliharaan"
+            app:layout_constraintBottom_toBottomOf="@+id/btnIp"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/btnIp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Klik untuk entry data ayam dan konsumsi"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDaily"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/btnDaily" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Klick disini untuk Laporan RHPP"
+            app:layout_constraintBottom_toBottomOf="@+id/btnRhpp"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toTopOf="@+id/btnRhpp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -95,5 +193,17 @@
             android:visibility="gone"
             tools:layout_editor_absoluteX="266dp"
             tools:layout_editor_absoluteY="439dp" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="wajib pilih tanggal bibit ayam masuk !"
+            android:textColor="@android:color/holo_red_light"
+            app:layout_constraintBottom_toBottomOf="@+id/edChickIn"
+            app:layout_constraintStart_toEndOf="@+id/edChickIn"
+            app:layout_constraintTop_toTopOf="@+id/edChickIn"
+            app:layout_constraintVertical_bias="0.428" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

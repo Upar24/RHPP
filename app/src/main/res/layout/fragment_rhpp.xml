@@ -22,7 +22,8 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/checkManager"
             app:layout_constraintEnd_toEndOf="@+id/tvRHPP"
-            app:layout_constraintTop_toTopOf="@+id/checkManager" />
+            app:layout_constraintTop_toTopOf="@+id/checkManager"
+            android:textColor="@android:color/black"/>
 
         <CheckBox
             android:id="@+id/checkManager"
@@ -31,7 +32,8 @@
             android:text="Confirmed by Manager"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/textView25"
-            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+            app:layout_constraintTop_toBottomOf="@+id/textView25"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/textView3"
@@ -42,6 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -49,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -57,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -66,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="28dp"
+            android:textColor="@android:color/black"
             android:text="DATA PEMELIHARAAN"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvUsernameRh" />
@@ -76,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Kapasitas Ayam (Awal)"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -85,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Total Panen Ayam (Kg)"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -94,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Indeks Pemelliharaan"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -104,6 +113,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="48dp"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/tvChickInRh" />
 
         <TextView
@@ -112,6 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/tvQtyRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/tvQtyRh" />
 
         <TextView
@@ -120,6 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/tvPanenKgRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/tvPanenKgRh" />
 
         <TextView
@@ -131,6 +143,7 @@
             android:text="Bonus IP:"
             android:textSize="10sp"
             app:layout_constraintEnd_toStartOf="@+id/lbIpRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/tvIpRh" />
 
         <TextView
@@ -141,6 +154,7 @@
             android:text="TextView"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@+id/tvIpRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/tvIpRh" />
 
         <TextView
@@ -150,6 +164,7 @@
             android:layout_marginTop="36dp"
             android:text="PENDAPATAN"
             app:layout_constraintStart_toStartOf="@+id/textView9"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
@@ -159,6 +174,7 @@
             android:layout_marginTop="12dp"
             android:text="Penj. Ayam (Rp)"
             app:layout_constraintStart_toStartOf="@+id/textView15"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <TextView
@@ -168,6 +184,7 @@
             android:layout_marginTop="8dp"
             android:text="BOP"
             app:layout_constraintStart_toStartOf="@+id/textView16"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
         <TextView
@@ -177,6 +194,7 @@
             android:layout_marginTop="8dp"
             android:text="Bonus IP"
             app:layout_constraintStart_toStartOf="@+id/textView17"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <TextView
@@ -186,6 +204,7 @@
             android:layout_marginTop="8dp"
             android:text="TOTAL PENDAPATAN"
             app:layout_constraintStart_toStartOf="@+id/textView18"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <TextView
@@ -195,6 +214,7 @@
             android:layout_marginTop="28dp"
             android:text="BIAYA"
             app:layout_constraintStart_toStartOf="@+id/textView19"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <TextView
@@ -204,6 +224,7 @@
             android:layout_marginTop="8dp"
             android:text="B. Bibit Ayam"
             app:layout_constraintStart_toStartOf="@+id/textView20"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         <TextView
@@ -213,6 +234,7 @@
             android:layout_marginTop="8dp"
             android:text="B. Pakan"
             app:layout_constraintStart_toStartOf="@+id/textView21"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
         <TextView
@@ -222,6 +244,7 @@
             android:layout_marginTop="8dp"
             android:text="B. OVK"
             app:layout_constraintStart_toStartOf="@+id/textView22"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
         <TextView
@@ -231,6 +254,7 @@
             android:layout_marginTop="8dp"
             android:text="TOTAL BIAYA"
             app:layout_constraintStart_toStartOf="@+id/textView23"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
         <TextView
@@ -240,6 +264,7 @@
             android:layout_marginTop="20dp"
             android:text="RHPP"
             app:layout_constraintStart_toStartOf="@+id/textView24"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         <TextView
@@ -249,7 +274,8 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="144dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/tvBopRh"
@@ -258,7 +284,8 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/tvPenjRpRh"
-            app:layout_constraintTop_toBottomOf="@+id/tvPenjRpRh" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPenjRpRh"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/tvBonusIpRh"
@@ -267,7 +294,8 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/tvBopRh"
-            app:layout_constraintTop_toBottomOf="@+id/tvBopRh" />
+            app:layout_constraintTop_toBottomOf="@+id/tvBopRh"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/tvTotalPndptnRh"
@@ -277,7 +305,8 @@
             android:layout_marginEnd="28dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBonusIpRh" />
+            app:layout_constraintTop_toBottomOf="@+id/tvBonusIpRh"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:id="@+id/tvBibitRh"
@@ -285,6 +314,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/tvBonusIpRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/textView21" />
 
         <TextView
@@ -292,6 +322,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@+id/tvBibitRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/textView22" />
 
         <TextView
@@ -299,6 +330,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@+id/tvPakanRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/textView23" />
 
         <TextView
@@ -307,6 +339,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/tvTotalPndptnRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/textView24" />
 
         <TextView
@@ -315,6 +348,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/tvTotalBiayaRh"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/textView25" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

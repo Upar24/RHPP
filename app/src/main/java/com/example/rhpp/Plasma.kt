@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.rhpp.databinding.FragmentLoginBinding
 import com.example.rhpp.databinding.FragmentPlasmaBinding
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
 
 class Plasma : Fragment(R.layout.fragment_plasma) {
     private var _binding: FragmentPlasmaBinding? = null
@@ -27,36 +28,41 @@ class Plasma : Fragment(R.layout.fragment_plasma) {
         val view = binding.root
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.edChickIn.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
         viewModel.username = args.username
-        viewModel.idDocc = args.chickIn
-        var jabatan = args.jbtn
+        viewModel.idDocc = binding.edChickIn.text.toString()
 
-
-
-        Snackbar.make(view, viewModel.idDocc, Snackbar.LENGTH_LONG).show()
+        var chickIn = binding.edChickIn.text.toString()
+        Snackbar.make(view, "LOL", Snackbar.LENGTH_LONG).show()
         super.onViewCreated(view, savedInstanceState)
         binding.btnDaily.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToDaily(args.username,args.chickIn,args.jbtn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToDaily(args.username,chickIn,args.jbtn))
         }
         binding.btnDoc.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToDoc(args.username,args.chickIn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToDoc(args.username,chickIn))
         }
         binding.btnFeed.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToFeed(args.username,args.chickIn,args.jbtn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToFeed(args.username,chickIn,args.jbtn))
         }
         binding.btnOvk.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToOvk(args.username,args.chickIn,args.jbtn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToOvk(args.username,chickIn,args.jbtn))
         }
         binding.btnPenjualan.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToSales(args.username,args.chickIn,args.jbtn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToSales(args.username,chickIn,args.jbtn))
         }
         binding.btnIp.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToIP(args.username,args.jbtn,args.chickIn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToIP(args.username,args.jbtn,chickIn))
         }
         binding.btnRhpp.setOnClickListener {
-            findNavController().navigate(PlasmaDirections.actionPlasmaToRhpp(args.username,args.chickIn,args.jbtn))
+            var chickIn = binding.edChickIn.text.toString()
+            findNavController().navigate(PlasmaDirections.actionPlasmaToRhpp(args.username,chickIn,args.jbtn))
         }
 
 

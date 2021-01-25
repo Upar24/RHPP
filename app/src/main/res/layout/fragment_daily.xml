@@ -16,75 +16,77 @@
         app:layout_constraintEnd_toStartOf="@+id/rvDaily"
         app:layout_constraintStart_toStartOf="@+id/idLayout">
 
+
         <Button
             android:id="@+id/btnHarian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="List Harian"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/fabSaveDaily"
             app:layout_constraintEnd_toStartOf="@+id/fabSaveDaily"
-            app:layout_constraintTop_toBottomOf="@+id/etFeed" />
-
+            app:layout_constraintTop_toTopOf="@+id/fabSaveDaily" />
 
         <EditText
             android:id="@+id/edDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="18dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="48dp"
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvDate"
-            app:layout_constraintTop_toTopOf="@+id/tvDate" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <EditText
             android:id="@+id/etDeath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Mati"
             android:inputType="number"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvDeath"
+            app:layout_constraintEnd_toEndOf="@+id/edDate"
             app:layout_constraintTop_toBottomOf="@+id/edDate" />
 
         <EditText
             android:id="@+id/etSick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Afkir"
             android:inputType="number"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvSick"
+            app:layout_constraintEnd_toEndOf="@+id/etDeath"
             app:layout_constraintTop_toBottomOf="@+id/etDeath" />
 
         <EditText
             android:id="@+id/etFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Konsumsi"
             android:inputType="number"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvFeed"
+            app:layout_constraintEnd_toEndOf="@+id/etSick"
             app:layout_constraintTop_toBottomOf="@+id/etSick" />
 
         <LinearLayout
             android:id="@+id/idLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
             android:orientation="horizontal"
-            android:padding="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -96,10 +98,10 @@
                 android:background="@drawable/border"
                 android:gravity="center"
                 android:text="Tanggal"
-                android:visibility="visible"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/tvAfkir"
@@ -109,10 +111,10 @@
                 android:background="@drawable/border"
                 android:gravity="center"
                 android:text="Afkir"
-                android:visibility="visible"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/tvMati"
@@ -122,10 +124,10 @@
                 android:background="@drawable/border"
                 android:gravity="center"
                 android:text="Mati"
-                android:visibility="visible"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/tvKonsumsi"
@@ -134,11 +136,11 @@
                 android:layout_weight="1.5"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:visibility="visible"
                 android:text="Feed"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/imEdit"
@@ -147,11 +149,11 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:visibility="visible"
                 android:text="E"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/imDelete"
@@ -160,11 +162,11 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:visibility="visible"
                 android:text="D"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/idCheck"
@@ -173,11 +175,11 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center"
-                android:visibility="visible"
                 android:text="ok"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:visibility="visible" />
 
         </LinearLayout>
 
@@ -185,68 +187,64 @@
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginStart="48dp"
             android:text="Tanggal"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/edDate"
+            app:layout_constraintBottom_toBottomOf="@+id/edDate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toTopOf="@+id/edDate" />
 
         <TextView
             android:id="@+id/tvDeath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="14dp"
             android:text="Mati"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/etDeath"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+            app:layout_constraintBottom_toBottomOf="@+id/etDeath"
+            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="@+id/etDeath" />
 
         <TextView
             android:id="@+id/tvSick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="12dp"
             android:text="Afkir"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/etSick"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDeath" />
+            app:layout_constraintBottom_toBottomOf="@+id/etSick"
+            app:layout_constraintStart_toStartOf="@+id/tvDeath"
+            app:layout_constraintTop_toTopOf="@+id/etSick" />
 
         <TextView
             android:id="@+id/tvFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="14dp"
             android:text="Konsumsi"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/etFeed"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/etFeed"
+            app:layout_constraintStart_toStartOf="@+id/tvSick"
             app:layout_constraintTop_toTopOf="@+id/etFeed" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="69dp"
+            android:layout_marginTop="68dp"
+            android:padding="20dp"
             android:text="Silahkan isi data harian dengan benar"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -256,11 +254,13 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="TextView"
-            android:visibility="visible"
             android:textAlignment="gravity"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/tvTA"
-            app:layout_constraintTop_toBottomOf="@+id/rvDaily" />
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTA"
+            app:layout_constraintEnd_toEndOf="@+id/tvTotalAfkir"
+            app:layout_constraintTop_toTopOf="@+id/tvTA" />
 
         <TextView
             android:id="@+id/tvTotalAfkir"
@@ -268,69 +268,81 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="TextView"
-            android:visibility="visible"
             android:textAlignment="gravity"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/tvTotal"
-            app:layout_constraintTop_toBottomOf="@+id/tvTotal" />
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTM"
+            app:layout_constraintEnd_toEndOf="@+id/tvTotalFeed"
+            app:layout_constraintTop_toTopOf="@+id/tvTM" />
 
         <TextView
             android:id="@+id/tvTotalFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="52dp"
             android:gravity="left"
             android:text="TextView"
-            android:visibility="visible"
             android:textAlignment="gravity"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/tvTotalAfkir"
-            app:layout_constraintTop_toBottomOf="@+id/tvTotalAfkir" />
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTF"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tvTA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:gravity="left"
-            android:text="Total Afkir"
-            android:visibility="visible"
+            android:text="Total Afkir           :"
             android:textAlignment="gravity"
             android:textColor="@color/black"
+            android:textSize="24sp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvTM"
-            app:layout_constraintTop_toBottomOf="@+id/rvDaily" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTM" />
 
         <TextView
             android:id="@+id/tvTM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:gravity="left"
-            android:text="Total Mati"
-            android:visibility="visible"
+            android:text="Total Mati           :"
             android:textAlignment="gravity"
             android:textColor="@color/black"
+            android:textSize="24sp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvTF"
-            app:layout_constraintTop_toBottomOf="@+id/tvTA" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTF" />
 
         <TextView
             android:id="@+id/tvTF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="97dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="32dp"
             android:gravity="left"
-            android:text="Total Feed"
-            android:visibility="visible"
+            android:text="Total Konsumsi :"
             android:textAlignment="gravity"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTotalFeed"
-            app:layout_constraintStart_toStartOf="@+id/rvDaily"
-            app:layout_constraintTop_toBottomOf="@+id/tvTM" />
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvDaily" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvDaily"
-            android:layout_width="411dp"
-            android:layout_height="350dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:scrollbars="vertical"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLayout" />
 
@@ -338,7 +350,7 @@
             android:id="@+id/fabSaveDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="16dp"
             android:clickable="true"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etFeed"

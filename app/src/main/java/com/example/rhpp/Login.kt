@@ -12,7 +12,6 @@ import com.example.rhpp.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import java.util.*
 
 @ExperimentalCoroutinesApi
 class Login : Fragment(R.layout.fragment_login) {
@@ -37,7 +36,7 @@ class Login : Fragment(R.layout.fragment_login) {
                     binding.spinnerJabatan.selectedItem.toString(),
                     binding.etPassword.text.toString())
             }
-        binding.etDate.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
+
 
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
@@ -45,16 +44,13 @@ class Login : Fragment(R.layout.fragment_login) {
                 when(it){
                     is LoginViewModel.LoginUiState.Success -> {
                         Snackbar.make(view,"Activity LOL",Snackbar.LENGTH_LONG).show()
-                        if(binding.spinnerJabatan.selectedItem.toString()=="Plasma"){
-                        findNavController().navigate(LoginDirections.actionLoginToPlasma(
-                                binding.etUsername.text.toString(),
-                                binding.spinnerJabatan.selectedItem.toString(),
-                                binding.etDate.text.toString()))
-                         }else{
+                        if(binding.spinnerJabatan.selectedItem.toString()=="Plasma") {
+                            findNavController().navigate(LoginDirections.actionLoginToPlasma(binding.etUsername.text.toString(),
+                                    binding.spinnerJabatan.selectedItem.toString()))
+                        }else{
                              findNavController().navigate(LoginDirections.actionLoginToInternal(
                                      binding.spinnerJabatan.selectedItem.toString(),
-                                binding.etUsername.text.toString(),
-                                binding.etDate.text.toString()))
+                                binding.etUsername.text.toString()))
                          }}
                     is LoginViewModel.LoginUiState.Error -> {
                         Snackbar.make(

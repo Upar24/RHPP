@@ -71,11 +71,12 @@ class IP : Fragment(R.layout.fragment_ip){
 
 
         binding.checkAdminIp.setOnCheckedChangeListener{buttomView,isChecked ->
+            if(args.jbtn.equals("Administrasi")){
             if(binding.checkAdminIp.isChecked)
             viewModel.saveIP(binding.tvFcrIp.text.toString(),binding.tvAbwIp.text.toString(),
             binding.tvLiveIp.text.toString(),binding.tvUmurIp.text.toString(),binding.tvIp.text.toString(),
             binding.tvDateChickIn.text.toString())
-        }
+        }}
     }
 
     private fun loadIP(){

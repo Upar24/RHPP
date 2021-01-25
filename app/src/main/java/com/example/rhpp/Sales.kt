@@ -122,7 +122,7 @@ class Sales: Fragment(R.layout.fragment_sales) {
                     if(abw in 1.801..1.900){binding.tvHargaGrns.text=16650.toString()}
                     if(abw in 1.901..2.000){binding.tvHargaGrns.text=16550.toString()}
                     if(abw in 2.001..2.100){binding.tvHargaGrns.text=16500.toString()}
-                    if(abw in 2.101..3.100){binding.tvHargaGrns.text=10000.toString()}
+                    if(abw in 2.101..3.100){binding.tvHargaGrns.text=16450.toString()}
                     var x = binding.tvHargaGrns.text.toString().toInt()*c
                     binding.tvTotalSales.setText(Math.round(x).toString())
 

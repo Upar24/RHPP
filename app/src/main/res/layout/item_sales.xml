@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="20dp">
     <TextView
         android:id="@+id/tvTglS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_weight="2.2"
         android:text="TextView" />
 
@@ -16,6 +17,7 @@
         android:id="@+id/tvInvoiceS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_weight="2"
         android:text="TextView" />
 
@@ -23,6 +25,7 @@
         android:id="@+id/tvEkorS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_weight="1.5"
         android:text="TextView" />
 
@@ -30,6 +33,7 @@
         android:id="@+id/tvKgS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_weight="1.5"
         android:text="TextView" />
 
@@ -37,6 +41,7 @@
         android:id="@+id/tvTotalS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_weight="3.7"
         android:text="TextView" />
 
@@ -53,4 +58,8 @@
         android:layout_height="30dp"
         android:layout_weight="1"
         app:srcCompat="@drawable/ic_delete_foreground" />
+
+
+
+
 </LinearLayout>

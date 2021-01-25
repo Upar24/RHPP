@@ -19,124 +19,74 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginEnd="12dp"
             android:text="List Feed"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/fabFeed"
             app:layout_constraintEnd_toStartOf="@+id/fabFeed"
-            app:layout_constraintTop_toBottomOf="@+id/etAmount" />
+            app:layout_constraintTop_toTopOf="@+id/fabFeed"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/etInvoice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="Masukkan no. Invoice"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/edDate"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <EditText
             android:id="@+id/edDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
-            app:layout_constraintEnd_toEndOf="@+id/etFeed"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/etInvoice"
             app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
 
         <EditText
             android:id="@+id/etFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Nama pakan"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/spFeed"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/edDate"
             app:layout_constraintTop_toBottomOf="@+id/edDate" />
 
         <EditText
             android:id="@+id/edTotalFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Jumlah pakan dalam Kg"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/etAmount"
+            android:inputType="textPersonName"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/spFeed"
             app:layout_constraintTop_toBottomOf="@+id/spFeed" />
 
         <EditText
             android:id="@+id/etAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Total (Rp)"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="textPersonName"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/edTotalFeed"
             app:layout_constraintTop_toBottomOf="@+id/edTotalFeed" />
-
-        <LinearLayout
-            android:id="@+id/idLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <TextView
-                android:id="@+id/tvDateF"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="tgl"
-                tools:layout_editor_absoluteY="32dp" />
-            <TextView
-                android:id="@+id/tvInvoiceF"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Inv" />
-
-            <TextView
-                android:id="@+id/tvNameFeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="J" />
-
-
-            <TextView
-                android:id="@+id/tvJumlahF"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="JMLH(Kg)" />
-
-            <TextView
-                android:id="@+id/tvTotalFe"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text="Total" />
-
-            <TextView
-                android:id="@+id/imEditF"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:text="D" />
-
-            <TextView
-                android:id="@+id/imDeleteF"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:text="E" />
-        </LinearLayout>
 
         <EditText
             android:id="@+id/spFeed"
@@ -146,74 +96,168 @@
             android:hint="7500/7600"
             android:textColor="@color/black"
             android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/edTotalFeed"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/etFeed"
             app:layout_constraintTop_toBottomOf="@+id/etFeed" />
+
+        <LinearLayout
+            android:id="@+id/idLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvDateF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/border"
+                android:paddingStart="15dp"
+                android:text="tgl"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteY="32dp" />
+
+            <TextView
+                android:id="@+id/tvInvoiceF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="Inv"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvNameFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:paddingStart="10dp"
+                android:text="J"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/tvJumlahF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="JMLH(Kg)"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvTotalFe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/border"
+                android:paddingStart="15dp"
+                android:text="Total"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/imEditF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="D"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/imDeleteF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="E"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvTotalFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="Jumlah Pakan"
             android:textColor="@color/black"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvTotal"
-            app:layout_constraintTop_toBottomOf="@+id/tvFeedType" />
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/edTotalFeed"
+            app:layout_constraintStart_toStartOf="@+id/tvFeedType"
+            app:layout_constraintTop_toTopOf="@+id/edTotalFeed" />
 
         <TextView
             android:id="@+id/tvFeedType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="Jenis Harga"
             android:textColor="@color/black"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvTotalFeed"
-            app:layout_constraintTop_toBottomOf="@+id/tvFeed" />
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/spFeed"
+            app:layout_constraintStart_toStartOf="@+id/tvFeed"
+            app:layout_constraintTop_toTopOf="@+id/spFeed" />
 
         <TextView
             android:id="@+id/tvFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="Pakan"
             android:textColor="@color/black"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvFeedType"
-            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/etFeed"
+            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="@+id/etFeed" />
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Tanggal"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/edDate"
-            app:layout_constraintStart_toStartOf="@+id/tvFeed"
-            app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
+            app:layout_constraintStart_toStartOf="@+id/tvInvoice"
+            app:layout_constraintTop_toTopOf="@+id/edDate" />
 
         <TextView
             android:id="@+id/tvInvoice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
+            android:layout_marginStart="44dp"
             android:text="Invoice"
             android:textColor="@color/black"
             android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/tvDate"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/etInvoice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etInvoice" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
+            android:padding="20dp"
             android:text="Silahkan isi data pakan dengan benar"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -223,59 +267,68 @@
             android:id="@+id/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
             android:text="Total"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/etAmount"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTotalFeed"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="@+id/tvTotalFeed"
+            app:layout_constraintTop_toTopOf="@+id/etAmount" />
 
         <TextView
             android:id="@+id/tvJumlah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="44dp"
             android:text="Total Pakan (Kg)"
-            app:layout_constraintStart_toStartOf="@+id/tvTOTALLL"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rvListFeed" />
 
         <TextView
             android:id="@+id/tvJmlh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
             android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/tvJumlah"
-            app:layout_constraintTop_toBottomOf="@+id/rvListFeed" />
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvJumlah"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvTtl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTOTALLL"
             app:layout_constraintEnd_toEndOf="@+id/tvJmlh"
-            app:layout_constraintTop_toBottomOf="@+id/tvJmlh" />
+            app:layout_constraintTop_toTopOf="@+id/tvTOTALLL" />
 
         <TextView
             android:id="@+id/tvTOTALLL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
             android:layout_marginTop="28dp"
             android:text="Total Pakan (Rp)"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/tvJumlah"
             app:layout_constraintTop_toBottomOf="@+id/tvJumlah" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvListFeed"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:visibility="gone"
+            android:layout_height="250dp"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idLayout" />
@@ -284,8 +337,9 @@
             android:id="@+id/fabFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="12dp"
             android:clickable="true"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etAmount"
             app:layout_constraintTop_toBottomOf="@+id/etAmount"
             app:srcCompat="@drawable/ic_save" />

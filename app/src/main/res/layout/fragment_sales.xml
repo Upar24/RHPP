@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="List Penjualan"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/fabSales"
             app:layout_constraintTop_toBottomOf="@+id/tvTotalSales" />
 
@@ -34,7 +34,7 @@
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -45,7 +45,7 @@
             android:ems="10"
             android:hint="Masukkan no. Invoice"
             android:inputType="textPersonName"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etDate"
             app:layout_constraintTop_toBottomOf="@+id/etDate" />
 
@@ -56,7 +56,7 @@
             android:ems="10"
             android:hint="Nama Pembeli"
             android:inputType="textPersonName"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etInvoice"
             app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
 
@@ -67,7 +67,7 @@
             android:ems="10"
             android:hint="Total ayam terjual (ekor)"
             android:inputType="number"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etBuyer"
             app:layout_constraintTop_toBottomOf="@+id/etBuyer" />
 
@@ -78,7 +78,7 @@
             android:ems="10"
             android:hint="Total ayam terjual (Kg)"
             android:inputType="numberDecimal"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etEkor"
             app:layout_constraintTop_toBottomOf="@+id/etEkor" />
 
@@ -90,7 +90,7 @@
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="Total Penjualan (Rp)"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/tvHargaGrns"
             app:layout_constraintTop_toBottomOf="@+id/lHargaGaransi" />
 
@@ -100,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
             android:orientation="horizontal"
+            android:paddingTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -109,49 +110,70 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.2"
-                android:text="Tgl" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="Tgl"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvInvoiceS"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="Invoice" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="Invoice"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvEkorS"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
-                android:text="Ekor" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="Ekor"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvKgS"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
-                android:text="Kg" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="Kg"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvTotalS"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3.7"
-                android:text="Penjualan(Rp)" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="Penjualan(Rp)"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/imEditS"
                 android:layout_width="0dp"
-                android:layout_height="23dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="E" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="E"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/imDeleteS"
                 android:layout_width="0dp"
-                android:layout_height="23dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="D" />
+                android:background="@drawable/border"
+                android:paddingStart="5dp"
+                android:text="D"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -164,7 +186,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -178,7 +200,7 @@
             android:text="Tanggal"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -190,7 +212,7 @@
             android:text="Kg"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvEkor"
             app:layout_constraintTop_toBottomOf="@+id/tvEkor" />
 
@@ -202,7 +224,7 @@
             android:text="Ekor"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvBuyer"
             app:layout_constraintTop_toBottomOf="@+id/tvBuyer" />
 
@@ -214,7 +236,7 @@
             android:text="Invoice"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvDate"
             app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
@@ -226,7 +248,7 @@
             android:text="Pembeli"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tvInvoice"
             app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
 
@@ -238,7 +260,7 @@
             android:layout_marginTop="32dp"
             android:text="Umur:  "
             android:textColor="@color/black"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvKg" />
 
@@ -300,7 +322,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/lUmur"
             app:layout_constraintTop_toBottomOf="@+id/lUmur" />
 
@@ -308,47 +330,56 @@
             android:id="@+id/tvLekor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="52dp"
             android:text="Total (Ekor)"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEkorj"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvListSales" />
+            app:layout_constraintTop_toTopOf="@+id/tvEkorj" />
 
         <TextView
             android:id="@+id/tvLkg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="Total (Kg)"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvKgj"
             app:layout_constraintStart_toStartOf="@+id/tvLekor"
-            app:layout_constraintTop_toBottomOf="@+id/tvLekor" />
+            app:layout_constraintTop_toTopOf="@+id/tvKgj" />
 
         <TextView
             android:id="@+id/tvLRp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Total (Rp)"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalj"
             app:layout_constraintStart_toStartOf="@+id/tvLkg"
-            app:layout_constraintTop_toBottomOf="@+id/tvLkg" />
+            app:layout_constraintTop_toTopOf="@+id/tvTotalj" />
 
         <TextView
             android:id="@+id/tvEkorj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="156dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="@+id/tvLekor"
-            app:layout_constraintStart_toEndOf="@+id/tvLekor"
-            app:layout_constraintTop_toBottomOf="@+id/rvListSales"
-            app:layout_constraintVertical_bias="1.0" />
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvListSales" />
 
         <TextView
             android:id="@+id/tvKgj"
-            android:layout_width="45dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/tvEkorj"
             app:layout_constraintTop_toBottomOf="@+id/tvEkorj" />
 
@@ -356,8 +387,10 @@
             android:id="@+id/tvTotalj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/tvKgj"
             app:layout_constraintTop_toBottomOf="@+id/tvKgj" />
 
@@ -376,7 +409,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:clickable="true"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/tvTotalSales"
             app:layout_constraintTop_toBottomOf="@+id/tvTotalSales"
             app:srcCompat="@drawable/ic_save" />

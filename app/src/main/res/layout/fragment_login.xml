@@ -11,127 +11,82 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".Login">
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="14dp"
+            android:layout_marginTop="32dp"
             android:text="Login"
             android:textSize="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/etPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
         <EditText
             android:id="@+id/etUsername"
-            android:layout_width="0dp"
+            android:layout_width="210dp"
             android:layout_height="56dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginTop="228dp"
+            android:layout_marginEnd="28dp"
             android:hint="Username"
             android:inputType="textPersonName"
             android:textSize="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/spinnerJabatan"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvUsername"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etPassword"
-            android:layout_width="0dp"
+            android:layout_width="210dp"
             android:layout_height="58dp"
-            android:layout_marginTop="78dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="78dp"
             android:hint="Password"
             android:inputType="textPersonName"
             android:textSize="28dp"
-            app:layout_constraintBottom_toBottomOf="@+id/etDate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvPassword"
-            app:layout_constraintTop_toTopOf="@+id/tvJabatan" />
-
-        <EditText
-            android:id="@+id/etDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="2dp"
-            android:ems="10"
-            android:hint="01-01-2021"
-            android:inputType="date"
-            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-            app:layout_constraintEnd_toEndOf="@+id/btnLogin" />
+            app:layout_constraintEnd_toEndOf="@+id/spinnerJabatan"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerJabatan" />
 
         <Spinner
             android:id="@+id/spinnerJabatan"
-            android:layout_width="0dp"
+            android:layout_width="187dp"
             android:layout_height="56dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="22dp"
-            android:layout_marginBottom="35dp"
             android:entries="@array/jabatan"
-            app:layout_constraintBottom_toTopOf="@+id/etPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvJabatan"
-            app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+            app:layout_constraintEnd_toEndOf="@+id/etUsername"
+            app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
         <TextView
             android:id="@+id/tvJabatan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="143dp"
-            android:layout_marginEnd="70dp"
             android:text="Jabatan"
             android:textColor="@color/black"
             android:textSize="32dp"
-            app:layout_constraintEnd_toStartOf="@+id/spinnerJabatan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/etPassword"
+            app:layout_constraintStart_toStartOf="@+id/tvUsername"
+            app:layout_constraintTop_toBottomOf="@+id/etUsername" />
 
         <TextView
             android:id="@+id/tvPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="30dp"
             android:text="Password"
             android:textColor="@color/black"
             android:textSize="32dp"
             app:layout_constraintBottom_toBottomOf="@+id/etPassword"
-            app:layout_constraintEnd_toStartOf="@+id/etPassword"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tvChickIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="Chick In"
-            android:textColor="@color/black"
-            android:textSize="32dp"
-            app:layout_constraintBottom_toBottomOf="@+id/etDate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/etDate" />
+            app:layout_constraintStart_toStartOf="@+id/tvJabatan"
+            app:layout_constraintTop_toTopOf="@+id/etPassword" />
 
         <TextView
             android:id="@+id/tvUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginBottom="50dp"
             android:text="Username"
             android:textColor="@color/black"
             android:textSize="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvJabatan"
-            app:layout_constraintEnd_toStartOf="@+id/etUsername"
+            app:layout_constraintBottom_toBottomOf="@+id/etUsername"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/etUsername" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
