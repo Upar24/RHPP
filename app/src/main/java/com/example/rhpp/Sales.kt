@@ -62,8 +62,11 @@ class Sales: Fragment(R.layout.fragment_sales) {
 
         loadPenjualanList()
         hideRv()
+        binding.fabaddsales.setOnClickListener{
+            hideRv()
+        }
 
-        firestoreListener= db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+        firestoreListener= db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("sales")
                 .addSnapshotListener { documentSnapshots, e->
                     if(e != null){
                         Log.e(ContentValues.TAG,"Listen Failed",e)
@@ -147,7 +150,7 @@ class Sales: Fragment(R.layout.fragment_sales) {
 
     }
 
-    private fun loadPenjualanList() {val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+    private fun loadPenjualanList() {val query = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("sales")
         val response = FirestoreRecyclerOptions.Builder<Penjualan>()
                 .setQuery(query,Penjualan::class.java).build()
         adapter = object : FirestoreRecyclerAdapter<Penjualan, SalesViewHolder>(response) {
@@ -181,7 +184,7 @@ class Sales: Fragment(R.layout.fragment_sales) {
     }
 private fun editSales(id:String){
     hideRv()
-    db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+    db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("sales")
             .document(id)
             .get()
             .addOnSuccessListener{doc->
@@ -195,7 +198,7 @@ private fun editSales(id:String){
             }
 }
     private fun deleteSales(id:String){
-        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("sales")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("sales")
                 .document(id)
                 .delete()
                 .addOnCompleteListener{
@@ -233,9 +236,10 @@ private fun editSales(id:String){
         binding.tvEkorj.visibility = View.GONE
         binding.tvKgj.visibility = View.GONE
         binding.tvTotalj.visibility = View.GONE
+        binding.fabaddsales.visibility = View.GONE
     }
     private fun hideEntry() {
-        db!!.collection("users").document(args.username).collection("doc")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc")
             .document(args.chickIn).collection("sales").get()
             .addOnSuccessListener { document ->
                 var totalEkor = 0
@@ -286,6 +290,7 @@ private fun editSales(id:String){
         binding.tvEkorj.visibility = View.VISIBLE
         binding.tvKgj.visibility = View.VISIBLE
         binding.tvTotalj.visibility = View.VISIBLE
+        binding.fabaddsales.visibility = View.VISIBLE
     }
 
 

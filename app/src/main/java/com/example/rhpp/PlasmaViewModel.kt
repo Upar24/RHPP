@@ -21,7 +21,7 @@ class PlasmaViewModel: ViewModel() {
         db.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
     fun saveDoc(tgl:String,strain:String,ekor:Int,bobot:Int,siap:Boolean)=viewModelScope.launch{
-    db.collection("users").document(username).collection("doc").document(tgl).set(mapOf(
+    db.collection("/users/pl/Plasma").document(username).collection("doc").document(tgl).set(mapOf(
                 "id" to tgl,
                 "strain" to strain,
                 "ekor" to ekor,
@@ -31,7 +31,7 @@ class PlasmaViewModel: ViewModel() {
     }
 
     fun saveDaily(tgl:String, mati:Int, afkir:Int, konsumsi:Int)=viewModelScope.launch {
- var dailyRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("daily")
+ var dailyRef = db.collection("/users/pl/Plasma").document(username).collection("doc").document(idDocc).collection("daily")
         dailyRef.document(tgl).set(mapOf(
                 "id" to tgl,
                 "mati" to mati,
@@ -41,7 +41,7 @@ class PlasmaViewModel: ViewModel() {
         ))
     }
     fun saveFeed(invoice: String, tgl: String, pakan: String, jenis: String, jmlh: String, total: String)=viewModelScope.launch {
-        var feedRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("feed")
+        var feedRef = db.collection("/users/pl/Plasma").document(username).collection("doc").document(idDocc).collection("feed")
             feedRef.document(invoice).set(mapOf(
                     "id" to invoice,
                     "tgl" to tgl,
@@ -52,7 +52,7 @@ class PlasmaViewModel: ViewModel() {
             ))
     }
     fun saveOvk(invoice:String,tgl:String,ovk:String,harga:Int,jmlh:Int,total:Int)=viewModelScope.launch {
-        var ovkRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("ovk")
+        var ovkRef = db.collection("/users/pl/Plasma").document(username).collection("doc").document(idDocc).collection("ovk")
         ovkRef.document(invoice).set(mapOf(
                 "id" to invoice,
                 "tgl" to tgl,
@@ -64,7 +64,7 @@ class PlasmaViewModel: ViewModel() {
     }
     fun saveSale(tgl: String,invoice: String,pmbl:String,ekor: String,kg:String,
                 umur:String, abw:String, hgaransi:String, total:String)=viewModelScope.launch {
-        var saleRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("sales")
+        var saleRef = db.collection("/users/pl/Plasma").document(username).collection("doc").document(idDocc).collection("sales")
         saleRef.document(invoice).set(mapOf(
                 "tgl" to tgl,
                 "id" to invoice,
@@ -79,7 +79,7 @@ class PlasmaViewModel: ViewModel() {
 
     }
     fun saveIP(fcr:String, abw:String, live:String, umur:String, ip:String, chickIn:String)=viewModelScope.launch {
-        var ipRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("ip")
+        var ipRef = db.collection("/users/pl/Plasma").document(username).collection("doc").document(idDocc).collection("ip")
         ipRef.document(chickIn).set(mapOf(
                 "fcr" to fcr,
                 "abw" to abw,
@@ -90,7 +90,7 @@ class PlasmaViewModel: ViewModel() {
         ))
     }
     fun saveRHPP(id:String,penj:String, bop:String, bonus_ip: String, bibit:String, pakan:String, ovk:String){
-        var rhppRef = db.collection("users").document(username).collection("doc").document(idDocc).collection("rhpp")
+        var rhppRef = db.collection("/users/pl/Plasma").document(username).collection("doc").document(idDocc).collection("rhpp")
         rhppRef.document(id).set(mapOf(
                 "id" to id,
                 "penj_ayam" to penj,

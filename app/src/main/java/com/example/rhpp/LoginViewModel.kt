@@ -25,7 +25,7 @@ class LoginViewModel : ViewModel() {
 
 
 
-        db.collection("users")
+        db.collection("/users/pl/Plasma")
                 .whereEqualTo("nama",username)
                 .whereEqualTo("jabatan",jbtn)
                 .whereEqualTo("password",password)

@@ -59,8 +59,57 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         val mLayoutManager = LinearLayoutManager(activity)
         binding.rvOvk.layoutManager = mLayoutManager
         binding.rvOvk.itemAnimator = DefaultItemAnimator()
+        binding.spovk.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                var item = p0?.getItemAtPosition(p2).toString()
+                var index = 0
+                when(item){
+                    "anovid" -> index = 0
+                    "acid" -> index = 1
+                    "ceva" -> index = 2
+                    "frmln" -> index = 3
+                    "neobro" -> index = 4
+                    "medi" -> index = 5
+                    "meniv" -> index = 6
+                    "moxtin" -> index = 7
+                    "toltra" -> index = 8
+                    "vit b" -> index = 9
+                    else -> index = 10
+            }
+                if(index==0){binding.etOvk.text = item
+                binding.etPrice.text = "24000"}
+                if(index==1){binding.etOvk.text = item
+                binding.etPrice.text = "10000"}
+                if(index==2){binding.etOvk.text = item
+                binding.etPrice.text = "15000"}
+                if(index==3){binding.etOvk.text = item
+                binding.etPrice.text = "3200"}
+                if(index==4){binding.etOvk.text = item
+                binding.etPrice.text = "30000"}
+                if(index==5){binding.etOvk.text = item
+                binding.etPrice.text = "18000"}
+                if(index==6){binding.etOvk.text = item
+                binding.etPrice.text = "19800"}
+                if(index==7){binding.etOvk.text = item
+                binding.etPrice.text = "9900"}
+                if(index==8){binding.etOvk.text = item
+                binding.etPrice.text = "15300"}
+                if(index==9){binding.etOvk.text = item
+                binding.etPrice.text = "8900"}
+                if(index==10){binding.etOvk.text = item
+                binding.etPrice.text = "2100"}
+
+
+                }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+        binding.fabAddOvk.setOnClickListener{
+            hideRv()
+        }
         loadOvkList()
-        firestoreListener = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+        firestoreListener = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
                 .addSnapshotListener { documentSnapshots, e->
                     if(e != null){
                         Log.e(TAG,"Listen Failed",e)
@@ -123,7 +172,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
 
 
     private fun loadOvkList() {
-        val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+        val query = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
         val response = FirestoreRecyclerOptions.Builder<ObatVK>()
                 .setQuery(query,ObatVK::class.java).build()
         adapter = object : FirestoreRecyclerAdapter<ObatVK, OvkViewHolder>(response) {
@@ -166,7 +215,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         adapter!!.stopListening()
     }
     private fun deleteOvk(id:String){
-        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
                 .document(id)
                 .delete()
                 .addOnCompleteListener{
@@ -175,7 +224,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
     }
     private fun editOvk(id: String){
         hideRv()
-        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("ovk")
                 .document(id)
                 .get()
                 .addOnSuccessListener{doc->
@@ -205,14 +254,16 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         binding.etTotalRp.visibility = View.VISIBLE
         binding.btnList.visibility = View.VISIBLE
         binding.fabOvk.visibility = View.VISIBLE
+        binding.spovk.visibility = View.VISIBLE
 
         binding.idLayout.visibility=View.GONE
         binding.rvOvk.visibility=View.GONE
         binding.tvTotalb.visibility=View.GONE
         binding.tvTotalB.visibility=View.GONE
+        binding.fabAddOvk.visibility = View.GONE
     }
     private fun hideEntry(){
-        db!!.collection("users").document(args.username).collection("doc")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc")
                 .document(args.chickIn).collection("ovk").get()
                 .addOnSuccessListener { document ->
                     var totalRp = 0
@@ -249,11 +300,13 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
         binding.etTotalRp.visibility = View.GONE
         binding.btnList.visibility = View.GONE
         binding.fabOvk.visibility = View.GONE
+        binding.spovk.visibility = View.GONE
 
         binding.idLayout.visibility=View.VISIBLE
         binding.rvOvk.visibility=View.VISIBLE
         binding.tvTotalb.visibility=View.VISIBLE
         binding.tvTotalB.visibility=View.VISIBLE
+        binding.fabAddOvk.visibility = View.VISIBLE
 
     }
 

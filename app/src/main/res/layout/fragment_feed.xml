@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:text="List Feed"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/fabFeed"
             app:layout_constraintEnd_toStartOf="@+id/fabFeed"
             app:layout_constraintTop_toTopOf="@+id/fabFeed"
@@ -36,7 +36,7 @@
             android:ems="10"
             android:hint="Masukkan no. Invoice"
             android:inputType="textPersonName"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -48,7 +48,7 @@
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/etInvoice"
             app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
 
@@ -60,7 +60,7 @@
             android:ems="10"
             android:hint="Nama pakan"
             android:inputType="textPersonName"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/edDate"
             app:layout_constraintTop_toBottomOf="@+id/edDate" />
 
@@ -72,11 +72,11 @@
             android:ems="10"
             android:hint="Jumlah pakan dalam Kg"
             android:inputType="textPersonName"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/spFeed"
             app:layout_constraintTop_toBottomOf="@+id/spFeed" />
 
-        <EditText
+        <TextView
             android:id="@+id/etAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,19 +84,21 @@
             android:ems="10"
             android:hint="Total (Rp)"
             android:inputType="textPersonName"
-            android:visibility="visible"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/edTotalFeed"
             app:layout_constraintTop_toBottomOf="@+id/edTotalFeed" />
 
-        <EditText
+        <TextView
             android:id="@+id/spFeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="7500/7600"
+            android:hint="HARGA"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/etFeed"
             app:layout_constraintTop_toBottomOf="@+id/etFeed" />
 
@@ -172,7 +174,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:paddingStart="5dp"
-                android:text="D"
+                android:text="E"
                 android:textColor="@color/black" />
 
             <TextView
@@ -182,7 +184,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border"
                 android:paddingStart="5dp"
-                android:text="E"
+                android:text="D"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -193,7 +195,7 @@
             android:text="Jumlah Pakan"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/edTotalFeed"
             app:layout_constraintStart_toStartOf="@+id/tvFeedType"
             app:layout_constraintTop_toTopOf="@+id/edTotalFeed" />
@@ -205,7 +207,7 @@
             android:text="Jenis Harga"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/spFeed"
             app:layout_constraintStart_toStartOf="@+id/tvFeed"
             app:layout_constraintTop_toTopOf="@+id/spFeed" />
@@ -217,7 +219,7 @@
             android:text="Pakan"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/etFeed"
             app:layout_constraintStart_toStartOf="@+id/tvDate"
             app:layout_constraintTop_toTopOf="@+id/etFeed" />
@@ -229,7 +231,7 @@
             android:text="Tanggal"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/edDate"
             app:layout_constraintStart_toStartOf="@+id/tvInvoice"
             app:layout_constraintTop_toTopOf="@+id/edDate" />
@@ -242,7 +244,7 @@
             android:text="Invoice"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/etInvoice"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/etInvoice" />
@@ -257,7 +259,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -270,7 +272,7 @@
             android:text="Total"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/etAmount"
             app:layout_constraintStart_toStartOf="@+id/tvTotalFeed"
             app:layout_constraintTop_toTopOf="@+id/etAmount" />
@@ -280,7 +282,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="96dp"
             android:text="Total Pakan (Kg)"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -339,10 +341,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:clickable="true"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/etAmount"
             app:layout_constraintTop_toBottomOf="@+id/etAmount"
             app:srcCompat="@drawable/ic_save" />
+
+        <Spinner
+            android:id="@+id/spJenisPakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/jenis_pakan"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/spFeed"
+            app:layout_constraintStart_toStartOf="@+id/etFeed"
+            app:layout_constraintTop_toTopOf="@+id/spFeed" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddPakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="40dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvListFeed"
+            app:srcCompat="@drawable/ic_add" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

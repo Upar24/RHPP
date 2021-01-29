@@ -50,7 +50,7 @@ class Internal : Fragment(R.layout.fragment_internal) {
         binding.edTglAll.transformIntoDatePicker(requireContext(), "MM-dd-yyyy", Date())
 
         loadPlasma()
-        firestoreListener = db!!.collection("users")
+        firestoreListener = db!!.collection("/users/pl/Plasma")
                 .addSnapshotListener { documentSnapshots, e ->
                     if (e != null) {
                         Log.e(ContentValues.TAG, "Listen failed!", e)
@@ -81,7 +81,7 @@ class Internal : Fragment(R.layout.fragment_internal) {
     }
 
     private fun loadPlasma() {
-        val query = db!!.collection("users")
+        val query = db!!.collection("/users/pl/Plasma")
 
         val response = FirestoreRecyclerOptions.Builder<User>()
                 .setQuery(query, User::class.java)

@@ -13,5 +13,18 @@
     <item>starter</item>
     <item>finisher</item>
 </string-array>
+    <string-array name="ovk">
+        <item>anovid</item>
+        <item>acid s</item>
+        <item>ceva</item>
+        <item>frmln</item>
+        <item>neobro</item>
+        <item>medi</item>
+        <item>meniv</item>
+        <item>moxtin</item>
+        <item>toltra</item>
+        <item>vit b</item>
+        <item>zuril</item>
+    </string-array>
 
 </resources>

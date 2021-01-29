@@ -64,6 +64,9 @@ class Daily: Fragment(R.layout.fragment_daily) {
                     binding.etFeed.text.toString().toInt())
             hideEntry()
         }
+        binding.fabAdd.setOnClickListener{
+            hideRv()
+        }
         binding.btnHarian.setOnClickListener{
             hideEntry()
         }
@@ -72,7 +75,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
         binding.rvDaily.itemAnimator = DefaultItemAnimator()
 
         loadHarianList()
-        firestoreListener = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+        firestoreListener = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                 .addSnapshotListener { documentSnapshots, e ->
                     if (e != null) {
                         Log.e(TAG, "Listen failed!", e)
@@ -115,10 +118,11 @@ class Daily: Fragment(R.layout.fragment_daily) {
         binding.tvTotal.visibility = View.GONE
         binding.tvTotalAfkir.visibility = View.GONE
         binding.tvTotalFeed.visibility = View.GONE
+        binding.fabAdd.visibility = View.GONE
     }
 
     private fun hideEntry() {
-        db!!.collection("users").document(args.username).collection("doc")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc")
                 .document(args.chickIn).collection("daily").get()
                 .addOnSuccessListener { document ->
                     var totalAfkir = 0
@@ -157,6 +161,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
         binding.tvTotal.visibility = View.VISIBLE
         binding.tvTotalAfkir.visibility = View.VISIBLE
         binding.tvTotalFeed.visibility = View.VISIBLE
+        binding.fabAdd.visibility = View.VISIBLE
 
 
 
@@ -170,7 +175,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
 
     private fun loadHarianList(){
 
-        val query = db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+        val query = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
 
         val response = FirestoreRecyclerOptions.Builder<Harian>()
                 .setQuery(query, Harian::class.java)
@@ -218,7 +223,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
 
 
     private fun deleteNote(id: String) {
-        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                 .document(id)
                 .delete()
                 .addOnCompleteListener {
@@ -234,7 +239,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
     }
     private fun updateNote(id: String) {
         hideRv()
-        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+        db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                 .document(id)
                 .get()
                 .addOnSuccessListener {doc->

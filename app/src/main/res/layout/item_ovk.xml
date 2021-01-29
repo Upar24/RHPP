@@ -53,22 +53,22 @@
         android:id="@+id/tvTotalI"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="2.7"
         android:paddingStart="4dp"
-        android:textColor="@color/black"
-        android:layout_weight="2.8"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black" />
     <ImageView
         android:id="@+id/imEditI"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_weight="1"
+        android:layout_weight=".8"
         app:srcCompat="@drawable/ic_editt" />
 
     <ImageView
         android:id="@+id/imDeleteI"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_weight="1"
+        android:layout_weight=".8"
         app:srcCompat="@drawable/ic_delete_foreground" />
 
 

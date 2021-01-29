@@ -45,12 +45,12 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
         }
         binding.checkManager.setOnCheckedChangeListener{bottomView,isChecked ->
             if(args.jbtn.equals("Pimpinan")){
-            db!!.collection("users").document(args.username).collection("doc").document(args.chickin).collection("rhpp")
+            db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickin).collection("rhpp")
                     .document(args.chickin)
                     .update(mapOf("validManager" to true))
             }
         }
-        Handler().postDelayed( {db!!.collection("users").document(args.username).collection("doc").document(args.chickin).collection("rhpp")
+        Handler().postDelayed( {db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickin).collection("rhpp")
                 .document(args.chickin)
                 .get()
                 .addOnSuccessListener { doc ->
@@ -114,12 +114,12 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
 
 
     private fun loadRHPP() {
-        db!!.collection("users").document(args.username)
+        db!!.collection("/users/pl/Plasma").document(args.username)
                 .get()
                 .addOnSuccessListener { doc ->
                     if (doc != null) {binding.tvUsernameRh.text = doc.get("nama").toString()}
                 }
-        var dataRef = db!!.collection("users").document(args.username).collection("doc")
+        var dataRef = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc")
         dataRef.document(args.chickin)
                 .get()
                 .addOnSuccessListener { doc ->

@@ -60,7 +60,7 @@ class IP : Fragment(R.layout.fragment_ip){
                 }
             }
         })
-        Handler().postDelayed( {db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("ip")
+        Handler().postDelayed( {db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("ip")
                 .document(args.chickIn)
                 .get()
                 .addOnSuccessListener { doc ->
@@ -80,12 +80,12 @@ class IP : Fragment(R.layout.fragment_ip){
     }
 
     private fun loadIP(){
-        db!!.collection("users").document(args.username)
+        db!!.collection("/users/pl/Plasma").document(args.username)
                 .get()
                 .addOnSuccessListener { doc ->
                     if (doc != null) {binding.tvPlasma.text = doc.get("nama").toString()}
                 }
-        var dataRef = db!!.collection("users").document(args.username).collection("doc")
+        var dataRef = db!!.collection("/users/pl/Plasma").document(args.username).collection("doc")
         dataRef.document(args.chickIn)
                 .get()
                 .addOnSuccessListener { doc ->

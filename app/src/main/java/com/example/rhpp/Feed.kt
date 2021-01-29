@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,6 +27,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirestoreRegistrar
 import com.google.firebase.firestore.ListenerRegistration
+import java.text.FieldPosition
 import java.util.*
 
 class Feed: Fragment(R.layout.fragment_feed) {
@@ -53,14 +55,26 @@ class Feed: Fragment(R.layout.fragment_feed) {
         viewModel.username = args.username
         viewModel.idDocc = args.chickIn
         hideRV()
-        binding.button.setOnClickListener {
-            hideEntry()
+        binding.spJenisPakan.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            var item = p0?.getItemAtPosition(p2).toString()
+                when(item){
+                    "starter" -> binding.spFeed.text = "7600"
+                    "finisher" -> binding.spFeed.text = "7500"
+                    else -> binding.spFeed.text ="0"
+
+               }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+
         }
+        binding.fabAddPakan.setOnClickListener{hideRV()}
+        binding.button.setOnClickListener { hideEntry()}
         val mlayoutManager = LinearLayoutManager(activity)
         binding.rvListFeed.layoutManager = mlayoutManager
         binding.rvListFeed.itemAnimator = DefaultItemAnimator()
         loadPakanList()
-        firestoreListener = db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+        firestoreListener = db.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("feed")
                 .addSnapshotListener { documentSnapshots, e->
                     if(e != null){
                         Log.e(ContentValues.TAG,"Listen Failed",e)
@@ -106,7 +120,7 @@ class Feed: Fragment(R.layout.fragment_feed) {
     }
 
     private fun loadPakanList() {
-        val query = db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+        val query = db.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("feed")
         val response = FirestoreRecyclerOptions.Builder<Pakan>()
                 .setQuery(query, Pakan::class.java).build()
         adapter = object : FirestoreRecyclerAdapter<Pakan,PakanViewHolder>(response){
@@ -132,7 +146,7 @@ class Feed: Fragment(R.layout.fragment_feed) {
     }
 private fun editFeed(id : String){
     hideRV()
-    db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+    db.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("feed")
             .document(id)
             .get()
             .addOnSuccessListener{doc->
@@ -147,7 +161,7 @@ private fun editFeed(id : String){
 
 }
     private fun deleteFeed(id:String){
-        db.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("feed")
+        db.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("feed")
                 .document(id)
                 .delete()
                 .addOnCompleteListener{
@@ -180,9 +194,10 @@ private fun editFeed(id : String){
         binding.tvTOTALLL.visibility = View.GONE
         binding.tvJmlh.visibility = View.GONE
         binding.tvTtl.visibility = View.GONE
+        binding.fabAddPakan.visibility = View.GONE
     }
     private fun hideEntry() {
-        db.collection("users").document(args.username).collection("doc")
+        db.collection("/users/pl/Plasma").document(args.username).collection("doc")
                 .document(args.chickIn).collection("feed").get()
                 .addOnSuccessListener { document ->
                     var totalKg = 0
@@ -219,6 +234,7 @@ private fun editFeed(id : String){
         binding.tvTOTALLL.visibility = View.VISIBLE
         binding.tvJmlh.visibility = View.VISIBLE
         binding.tvTtl.visibility = View.VISIBLE
+        binding.fabAddPakan.visibility = View.VISIBLE
     }
     override fun onStart() {
         super.onStart()
