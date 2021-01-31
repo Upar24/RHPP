@@ -165,6 +165,7 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
                 binding.etAmount.text.toString().toInt(),
                 binding.etTotalRp.text.toString().toInt())
             hideEntry()
+            Toast.makeText(activity, "Data telah disimpan!", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -237,7 +238,10 @@ class Ovk: Fragment(R.layout.fragment_ovk) {
                         binding.etTotalRp.setText(doc.get("total").toString())
                     }
                 }
-    }
+                .addOnCompleteListener {
+                    Toast.makeText(activity, "Silahkan Edit OVK!", Toast.LENGTH_SHORT).show()
+                }
+                }
     private fun hideRv(){
         binding.tvTitle.visibility = View.VISIBLE
         binding.tvInvoice.visibility = View.VISIBLE

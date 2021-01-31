@@ -143,6 +143,7 @@ class Sales: Fragment(R.layout.fragment_sales) {
             binding.tvHargaGrns.text.toString(),
             binding.tvTotalSales.text.toString())
             hideEntry()
+            Toast.makeText(activity, "Data telah disimpan!", Toast.LENGTH_LONG).show()
         }
 
 
@@ -196,7 +197,10 @@ private fun editSales(id:String){
                     binding.etKg.setText(doc.get("kg").toString())
                 }
             }
-}
+            .addOnCompleteListener {
+                Toast.makeText(activity, "Silahkan edit penjualan!", Toast.LENGTH_SHORT).show()
+            }
+            }
     private fun deleteSales(id:String){
         db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("sales")
                 .document(id)

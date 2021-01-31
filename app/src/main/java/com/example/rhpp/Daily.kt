@@ -63,6 +63,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
                     binding.etSick.text.toString().toInt(),
                     binding.etFeed.text.toString().toInt())
             hideEntry()
+            Toast.makeText(activity, "Data telah disimpan!", Toast.LENGTH_LONG).show()
         }
         binding.fabAdd.setOnClickListener{
             hideRv()
@@ -140,7 +141,8 @@ class Daily: Fragment(R.layout.fragment_daily) {
                         binding.tvTotalFeed.text = totalFeed.toString()
                     }
                 }
-        binding.tvTitle.visibility = View.GONE
+
+                    binding.tvTitle.visibility = View.GONE
         binding.tvDate.visibility = View.GONE
         binding.tvDeath.visibility = View.GONE
         binding.tvFeed.visibility = View.GONE
@@ -190,10 +192,10 @@ class Daily: Fragment(R.layout.fragment_daily) {
                 holder.mati.text = harian.mati.toString()
                 holder.konsumsi.text = harian.konsumsi.toString()
                 holder.check.isChecked = harian.check
-                holder.edit.setOnClickListener { updateNote(harian.id!!) }
-                holder.delete.setOnClickListener { deleteNote(harian.id!!)}
+                holder.edit.setOnClickListener { updateHarian(harian.id!!) }
+                holder.delete.setOnClickListener { deleteHarian(harian.id!!)}
                 holder.check.setOnCheckedChangeListener{buttomView,isChecked ->
-                    if(isChecked){checkNote(harian.id!!)}}
+                    if(isChecked){checkHarian(harian.id!!)}}
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HarianViewHolder {
@@ -222,36 +224,42 @@ class Daily: Fragment(R.layout.fragment_daily) {
 
 
 
-    private fun deleteNote(id: String) {
+    private fun deleteHarian(id: String) {
         db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                 .document(id)
                 .delete()
                 .addOnCompleteListener {
-                    Toast.makeText(activity, "Note has been deleted!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Harian has been deleted!", Toast.LENGTH_SHORT).show()
                 }
     }
-    private fun checkNote(id:String){
-        if(args.jbtn.equals("Technical Service")){
-        db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
-                .document(id)
-                .update("check",true)
+    private fun checkHarian(id:String) {
+        if (args.jbtn.equals("Technical Service")) {
+            db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+                    .document(id)
+                    .update("check", true)
+                    .addOnCompleteListener {
+                        Toast.makeText(activity, "Harian sudah valid!", Toast.LENGTH_SHORT).show()
+                    }
         }
     }
-    private fun updateNote(id: String) {
+    private fun updateHarian(id: String) {
         hideRv()
         db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                 .document(id)
                 .get()
-                .addOnSuccessListener {doc->
-                    if ( doc != null){
+                .addOnSuccessListener { doc ->
+                    if (doc != null) {
                         binding.edDate.setText(doc.get("id").toString())
                         binding.etDeath.setText(doc.get("mati").toString())
                         binding.etSick.setText(doc.get("afkir").toString())
                         binding.etFeed.setText(doc.get("konsumsi").toString())
                     }
                 }
-    }
+                .addOnCompleteListener {
+                    Toast.makeText(activity, "Silahkan Update Harian!", Toast.LENGTH_SHORT).show()
 
+                }
+    }
 
 
 }

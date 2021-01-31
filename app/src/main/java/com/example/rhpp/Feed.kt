@@ -116,6 +116,7 @@ class Feed: Fragment(R.layout.fragment_feed) {
                 binding.edTotalFeed.text.toString(),
                 binding.etAmount.text.toString())
             hideEntry()
+            Toast.makeText(activity, "Data telah disimpan!", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -158,8 +159,11 @@ private fun editFeed(id : String){
                     binding.edTotalFeed.setText(doc.get("jumlah").toString())
                 }
             }
+            .addOnCompleteListener {
+                Toast.makeText(activity, "Silahkan Edit Pakan!", Toast.LENGTH_SHORT).show()
+            }
 
-}
+            }
     private fun deleteFeed(id:String){
         db.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("feed")
                 .document(id)

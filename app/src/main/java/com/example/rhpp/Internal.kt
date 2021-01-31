@@ -93,6 +93,8 @@ class Internal : Fragment(R.layout.fragment_internal) {
 
                 holder.id.text = plasma.id
                 holder.nama.text = plasma.nama
+                holder.nama.setOnClickListener { showPlasma(plasma.id!!) }
+                holder.id.setOnClickListener { showPlasma(plasma.id!!) }
                 holder.ip.setOnClickListener { showip(plasma.id!!) }
                 holder.rhpp.setOnClickListener { showrhpp(plasma.id!!) }
             }
@@ -113,7 +115,9 @@ class Internal : Fragment(R.layout.fragment_internal) {
         _binding = null
     }
 
-
+    private fun showPlasma(id:String){
+        findNavController().navigate(InternalDirections.actionInternalToPlasma2(id,args.jbtn))
+    }
     private fun showrhpp(id: String) {
         var chickIn = binding.edTglAll.text.toString()
     findNavController().navigate(InternalDirections.actionInternalToRhpp(id,chickIn,args.jbtn))

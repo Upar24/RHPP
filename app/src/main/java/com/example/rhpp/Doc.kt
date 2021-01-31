@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -39,6 +40,8 @@ class Doc: Fragment(R.layout.fragment_doc) {
                     binding.etQty.text.toString().toInt(),
                     binding.etBobot.text.toString().toInt(),
                     binding.checkBox.isChecked)
+            Toast.makeText(activity, "Data telah disimpan!", Toast.LENGTH_LONG).show()
+
         } }
 
 
