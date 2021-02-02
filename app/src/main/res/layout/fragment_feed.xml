@@ -48,7 +48,7 @@
             android:ems="10"
             android:hint="01-01-2021"
             android:inputType="date"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/etInvoice"
             app:layout_constraintTop_toBottomOf="@+id/etInvoice" />
 
@@ -60,7 +60,7 @@
             android:ems="10"
             android:hint="Nama pakan"
             android:inputType="textPersonName"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/edDate"
             app:layout_constraintTop_toBottomOf="@+id/edDate" />
 
@@ -71,8 +71,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Jumlah pakan dalam Kg"
-            android:inputType="textPersonName"
-            android:visibility="gone"
+            android:inputType="numberSigned"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/spFeed"
             app:layout_constraintTop_toBottomOf="@+id/spFeed" />
 

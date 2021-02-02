@@ -92,11 +92,11 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
                         in 311..320 -> 1050
                         in 321..330 -> 1150
                         in 331..340 -> 1200
-                        in 341..346 -> 1250
+                        in 341..500 -> 1250
                         else -> 0
                     }
                     binding.lbIpRh.text = bonusIP.toString()
-                    var ipbonus =bonusIP * qty.toInt()
+                    var ipbonus =bonusIP * panenKg.toInt()
                     binding.tvBonusIpRh.text = ipbonus.toString()
                     var pendapatan =(pnjlnRp.toInt() + bop + ipbonus)
                     binding.tvTotalPndptnRh.text = pendapatan.toString()
@@ -129,15 +129,14 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
         dataRef.document(args.chickin).collection("sales")
                 .get()
                 .addOnSuccessListener { document ->
-                    var totalKg = 0.00
+                    var totalEkor = 0
                     var totalRp : Long = 0
                     for (doc in document) {
                         var b = doc.get("total").toString().toLong()
-                        var c = doc.get("kg").toString().toFloat()
+                        var c = doc.get("ekor").toString().toInt()
                         totalRp += b
-                        totalKg += c
-                        var x = Math.round(((totalKg)*100.0))/100.0
-                        binding.tvPanenKgRh.text = x.toString()
+                        totalEkor += c
+                        binding.tvPanenKgRh.text = totalEkor.toString()
                         binding.tvPenjRpRh.text = totalRp.toString()
                     }
                 }

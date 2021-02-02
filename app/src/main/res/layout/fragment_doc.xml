@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Strain"
+            android:hint="Jenis Bibit"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="@+id/etDate"
             app:layout_constraintTop_toBottomOf="@+id/etDate" />

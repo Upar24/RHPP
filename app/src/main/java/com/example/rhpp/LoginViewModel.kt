@@ -23,8 +23,6 @@ class LoginViewModel : ViewModel() {
         _loginUiState.value = LoginUiState.Loading
            delay(2000L)
 
-
-
         db.collection("/users/pl/Plasma")
                 .whereEqualTo("nama",username)
                 .whereEqualTo("jabatan",jbtn)
