@@ -72,7 +72,7 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
 
             override fun afterTextChanged(p0: Editable?) {
                 var qty = binding.tvQtyRh.text.toString()
-                var panenKg = binding.tvPanenKgRh.text.toString()
+                var panenKg = binding.tvPanenEkorRh.text.toString()
                 var ip = binding.tvIpRh.text.toString()
                 var pnjlnRp = binding.tvPenjRpRh.text.toString()
                 var pakan = binding.tvPakanRh.text.toString()
@@ -136,7 +136,7 @@ class Rhpp : Fragment(R.layout.fragment_rhpp) {
                         var c = doc.get("ekor").toString().toInt()
                         totalRp += b
                         totalEkor += c
-                        binding.tvPanenKgRh.text = totalEkor.toString()
+                        binding.tvPanenEkorRh.text = totalEkor.toString()
                         binding.tvPenjRpRh.text = totalRp.toString()
                     }
                 }

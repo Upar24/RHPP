@@ -5,13 +5,14 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingTop="20dp">
+
     <TextView
         android:id="@+id/tvTglS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_weight="2.2"
-        android:text="TextView" />
+        android:layout_weight="2.5"
+        android:text="TextView"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/tvInvoiceS"
@@ -41,9 +42,9 @@
         android:id="@+id/tvTotalS"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_weight="3.7"
-        android:text="TextView" />
+        android:layout_weight="3.5"
+        android:text="TextView"
+        android:textColor="@android:color/black" />
 
     <ImageView
         android:id="@+id/imEditS"

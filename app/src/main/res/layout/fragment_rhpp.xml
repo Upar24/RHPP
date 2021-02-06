@@ -117,7 +117,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvChickInRh" />
 
         <TextView
-            android:id="@+id/tvPanenKgRh"
+            android:id="@+id/tvPanenEkorRh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -131,8 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="@+id/tvPanenKgRh"
-            app:layout_constraintTop_toBottomOf="@+id/tvPanenKgRh" />
+            app:layout_constraintEnd_toEndOf="@+id/tvPanenEkorRh"
+            app:layout_constraintTop_toBottomOf="@+id/tvPanenEkorRh" />
 
         <TextView
             android:id="@+id/textView13"

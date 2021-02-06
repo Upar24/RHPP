@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="disini"
+            android:hint="Pilih tanggal DOC in"
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -86,14 +86,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="IP" />
+                android:shadowColor="@color/black"
+                android:text="IP"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/imRHPP"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="RHPP" />
+                android:shadowColor="@color/black"
+                android:text="RHPP"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <TextView
@@ -101,7 +105,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:shadowColor="@color/black"
             android:text="pilih tgl ayam masuk untuk melihat IP dan RHPP(wajib)"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
