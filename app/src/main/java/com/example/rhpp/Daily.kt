@@ -234,7 +234,7 @@ class Daily: Fragment(R.layout.fragment_daily) {
     }
     private fun checkHarian(id:String) {
         if (args.jbtn.equals("Technical Service")) {
-            db!!.collection("users").document(args.username).collection("doc").document(args.chickIn).collection("daily")
+            db!!.collection("/users/pl/Plasma").document(args.username).collection("doc").document(args.chickIn).collection("daily")
                     .document(id)
                     .update("check", true)
                     .addOnCompleteListener {
